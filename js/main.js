@@ -69,11 +69,13 @@ function getInfo(lunchMenu) { // Bypassing CORS using JSONP
 
 function getSubInfo(subBlocks) {
   try {
-    document.getElementById('sub-body').innerHTML = (subBlocks.days[today.getDay()].teachers_out[1].teacher.name);
+    document.getElementById('sub-body').innerHTML = (date.getHours()*(60*60*1000) + date.getMinutes()*(60* 1000) + date.getSeconds()*(1000) + date.getMilliseconds());
   } catch (error){
     document.getElementById('sub-body').innerHTML = "No Teachers Out";
   }
 }
+
+//subBlocks.days[today.getDay()].teachers_out[1].teacher.name
 
 function getTimeOfDayMillis(date){
   return date.getHours()*(60*60*1000) + date.getMinutes()*(60* 1000) + date.getSeconds()*(1000) + date.getMilliseconds();
