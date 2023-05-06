@@ -67,7 +67,7 @@ function getInfo(lunchMenu) { // Bypassing CORS using JSONP
   }
 }
 
-function getInfo(subBlocks) { // Bypassing CORS using JSONP
+function getSubInfo(subBlocks) {
   try {
     document.getElementById('sub-body').innerHTML = (subBlocks.days[today.getDay()].teachers_out[1].teacher.name);
   } catch (error){
@@ -177,6 +177,13 @@ function main(){
   var lunchtag = document.createElement("script");
   lunchtag.src = "https://melroseschools.nutrislice.com/menu/api/weeks/school/melrose/menu-type/breakfast/" + today.getFullYear() + "/00/00/?format=json-p";
   document.getElementsByTagName('head')[0].appendChild(lunchtag);
+
+
+  var subs = document.createElement("subs");
+  subs.src = "https://docs.google.com/spreadsheets/d/1kBo26OmMRQ5a_EQ-LBRd_FrSDl9DejAesp9o6a_O8mk/edit?usp=sharing";
+  document.getElementsByTagName('head')[0].appendChild(subs);
+
+
 
   // Aspen Stuff
   var aspenScheduleEndpoint = new HttpClient();
