@@ -60,7 +60,7 @@ ul {
   display: flex;
   border-bottom: solid #f2dede thin;
   overflow: hidden;
-  flex-direction: column;
+  flex-direction: row;
   align-items: stretch;
   font-size: larger;
 }
