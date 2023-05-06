@@ -53,11 +53,25 @@ function shuffleArray(array) { // https://stackoverflow.com/a/12646864/1709894
   return array;
 }
 
+
+//assume lunchmenu = form
+//days = the array
+//finds the value
+//finds the menu item noted with it
+//finds the food 
 function getInfo(lunchMenu) { // Bypassing CORS using JSONP
   try {
     document.getElementById('lunch-body').innerHTML = (lunchMenu.days[today.getDay()].menu_items[1].food.name);
   } catch (error){
     document.getElementById('lunch-body').innerHTML = "No Lunch Served";
+  }
+}
+
+function getInfo(subBlocks) { // Bypassing CORS using JSONP
+  try {
+    document.getElementById('sub-body').innerHTML = (subBlocks.days[today.getDay()].teachers_out[1].teacher.name);
+  } catch (error){
+    document.getElementById('sub-body').innerHTML = "No Teachers Out";
   }
 }
 
