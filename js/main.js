@@ -421,4 +421,4 @@ setInterval(function(){
     var container = document.getElementById("sub-main").style.display = "none";
     var container = document.getElementById("announcements").style.display = "block";
   }
-},1000*60); //1000 = 1 second * multiplier for updating
+},1000*1); //1000 = 1 second * multiplier for updating
