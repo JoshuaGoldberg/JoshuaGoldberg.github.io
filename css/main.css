@@ -58,7 +58,6 @@ ul {
 #schedule-body{
   padding: 0;
   display: flex;
-  border-bottom: solid #f2dede thin;
   overflow: hidden;
   flex-direction: row;
   align-items: stretch;
