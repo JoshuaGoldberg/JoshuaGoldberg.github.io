@@ -411,3 +411,14 @@ function refreshPushNotfificationStatus() {
     });
   });
 }
+
+setInterval(function(){
+  var date = new Date();
+  if(date.getHours() == 22 && date.getMinutes() == 34 && date.getSeconds() > 45){
+      var container = document.getElementById("sub-main").style.display = "block";
+      var container = document.getElementById("announcements").style.display = "none";
+  }else{
+    var container = document.getElementById("sub-main").style.display = "none";
+    var container = document.getElementById("announcements").style.display = "block";
+  }
+},1000*60); //1000 = 1 second * multiplier for updating
