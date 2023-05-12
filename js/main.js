@@ -166,12 +166,8 @@ function postNewAnnouncement(announcements, index) {
 
 function main(){
 
-
-  document.getElementById('sub-body').innerHTML = baseEndpoint2.getElementById("0R2").innerHTML;
-  
-
-
-
+ // document.getElementById('sub-body').innerHTML = baseEndpoint2.getElementById("0R2").innerHTML;
+ // document.getElementById("sub-body").style.height = 2 + "00px";
 
   if(checkBillboard()){
     document.getElementById('header').remove();
@@ -425,7 +421,7 @@ setInterval(function(){
   var date = new Date();
   var differenceMorning = date.getMinutes() - 17
   var differenceAfternoon = date.getMinutes() - 41
-  
+
   if(date.getHours() < 12){
     if(differenceMorning <= 5 && differenceMorning >= 0){
       var container = document.getElementById("sub-main").style.display = "block";
@@ -443,6 +439,8 @@ setInterval(function(){
     var container = document.getElementById("announcements").style.display = "block";
   }
 
-  var container = document.getElementById("sub-main").style.display = "block";
+  //delete later
+ // var container = document.getElementById("sub-main").style.display = "block";
+ 
 
 }},1000*1); //1000 = 1 second * multiplier for updating
