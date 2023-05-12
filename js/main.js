@@ -1,4 +1,5 @@
 var baseEndpoint = "https://aspencheck.herokuapp.com/api/v1/ma-melrose"
+var baseEndpoint2 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRi64JzTR3iuJFB1eQuVg-idKtzjhX0ugwuSMOBhvw5tdMJZWQQq-MdyssYdhOsTBiiXx3Y-sI6fnrO/pubhtml"
 
 var today = new Date();
 var day;
@@ -69,7 +70,7 @@ function getInfo(lunchMenu) { // Bypassing CORS using JSONP
 
 function getSubInfo(subBlocks) {
   try {
-    document.getElementById('sub-body').innerHTML = (date.getHours()*(60*60*1000) + date.getMinutes()*(60* 1000) + date.getSeconds()*(1000) + date.getMilliseconds());
+    document.getElementById('sub-body').innerHTML = baseEndpoint2.getElementById("0R2").innerHTML;
   } catch (error){
     document.getElementById('sub-body').innerHTML = "No Teachers Out";
   }
@@ -164,6 +165,14 @@ function postNewAnnouncement(announcements, index) {
 }
 
 function main(){
+
+
+  document.getElementById('sub-body').innerHTML = baseEndpoint2.getElementById("0R2").innerHTML;
+  
+
+
+
+
   if(checkBillboard()){
     document.getElementById('header').remove();
     document.getElementById('announcements-buttons-container').remove();
@@ -181,11 +190,9 @@ function main(){
   document.getElementsByTagName('head')[0].appendChild(lunchtag);
 
 
-  var subs = document.createElement("subs");
-  subs.src = "https://docs.google.com/spreadsheets/d/1kBo26OmMRQ5a_EQ-LBRd_FrSDl9DejAesp9o6a_O8mk/edit?usp=sharing";
-  document.getElementsByTagName('head')[0].appendChild(subs);
-
-
+ /* var subs = document.createElement("subs");
+  subs.src = baseEndpoint2;
+  document.getElementsByTagName('head')[0].appendChild(subs);*/
 
   // Aspen Stuff
   var aspenScheduleEndpoint = new HttpClient();
@@ -412,13 +419,30 @@ function refreshPushNotfificationStatus() {
   });
 }
 
+
+
 setInterval(function(){
   var date = new Date();
-  if(date.getHours() == 22 && date.getMinutes() == 34 && date.getSeconds() > 45){
+  var differenceMorning = date.getMinutes() - 17
+  var differenceAfternoon = date.getMinutes() - 41
+  
+  if(date.getHours() < 12){
+    if(differenceMorning <= 5 && differenceMorning >= 0){
+      var container = document.getElementById("sub-main").style.display = "block";
+      var container = document.getElementById("announcements").style.display = "none";
+    }else{
+      var container = document.getElementById("sub-main").style.display = "none";
+      var container = document.getElementById("announcements").style.display = "block";
+    }
+  }else{
+    if(differenceAfternoon <= 5 && differenceAfternoon >= 0){
       var container = document.getElementById("sub-main").style.display = "block";
       var container = document.getElementById("announcements").style.display = "none";
   }else{
     var container = document.getElementById("sub-main").style.display = "none";
     var container = document.getElementById("announcements").style.display = "block";
   }
-},1000*60); //1000 = 1 second * multiplier for updating
+
+  var container = document.getElementById("sub-main").style.display = "block";
+
+}},1000*1); //1000 = 1 second * multiplier for updating
