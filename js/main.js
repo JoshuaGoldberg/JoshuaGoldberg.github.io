@@ -1,5 +1,5 @@
 var baseEndpoint = "https://aspencheck.herokuapp.com/api/v1/ma-melrose"
-var baseEndpoint2 = "https://script.google.com/macros/s/AKfycbwbjHUqbiuim-dx1aRxkczR4c6O0AU8Q2iw6HtKlFnL-fh5X4x6w-F0QrAmWlzVc3kt/exec"
+var baseEndpoint2 = "https://script.google.com/macros/s/AKfycby7dZt49ec-4vf8uLAOgyBgoXs4XLwgygKOhhiXD-hM7PFvrzk1RJPoWNJQSzpG6IU8/exec"
 
 var today = new Date();
 var day;
