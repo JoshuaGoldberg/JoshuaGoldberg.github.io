@@ -165,10 +165,6 @@ function postNewAnnouncement(announcements, index) {
 }
 
 function main(){
-
- // document.getElementById('sub-body').innerHTML = baseEndpoint2.getElementById("0R2").innerHTML;
- // document.getElementById("sub-body").style.height = 2 + "00px";
-
   if(checkBillboard()){
     document.getElementById('header').remove();
     document.getElementById('announcements-buttons-container').remove();
@@ -440,7 +436,7 @@ setInterval(function(){
   }
 
   //delete later
- // var container = document.getElementById("sub-main").style.display = "block";
+  var container = document.getElementById("sub-main").style.display = "block";
  
 
 }},1000*1); //1000 = 1 second * multiplier for updating
