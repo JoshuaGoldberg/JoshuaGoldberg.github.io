@@ -1,5 +1,5 @@
 var baseEndpoint = "https://aspencheck.herokuapp.com/api/v1/ma-melrose"
-var baseEndpoint2 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRi64JzTR3iuJFB1eQuVg-idKtzjhX0ugwuSMOBhvw5tdMJZWQQq-MdyssYdhOsTBiiXx3Y-sI6fnrO/pubhtml"
+var baseEndpoint2 = "https://script.google.com/macros/s/AKfycbxhjSrH5RQnjvNxQp4udXR0EtKUrSecti-Yw3kBANbLRPirCoKFsPUZo9YFM33-pVuW/exec"
 
 var today = new Date();
 var day;
@@ -68,13 +68,11 @@ function getInfo(lunchMenu) { // Bypassing CORS using JSONP
   }
 }
 
-function getSubInfo(subBlocks) {
-  try {
-    document.getElementById('sub-body').innerHTML = baseEndpoint2.getElementById("0R2").innerHTML;
-  } catch (error){
-    document.getElementById('sub-body').innerHTML = "No Teachers Out";
-  }
-}
+var subInfo = new HttpClient();
+subInfo.get(baseEndpoint2, function(response) {
+    document.getElementById("sub-body").innerHTML = subInfo;
+});
+
 
 //subBlocks.days[today.getDay()].teachers_out[1].teacher.name
 
@@ -182,9 +180,10 @@ function main(){
   document.getElementsByTagName('head')[0].appendChild(lunchtag);
 
 
- /* var subs = document.createElement("subs");
-  subs.src = baseEndpoint2;
-  document.getElementsByTagName('head')[0].appendChild(subs);*/
+  var subs = document.createElement("script");
+  subs.src = "https://script.google.com/macros/s/AKfycbxhjSrH5RQnjvNxQp4udXR0EtKUrSecti-Yw3kBANbLRPirCoKFsPUZo9YFM33-pVuW/exec";
+  document.getElementsByTagName('head')[0].appendChild(subs);
+
 
   // Aspen Stuff
   var aspenScheduleEndpoint = new HttpClient();
@@ -439,4 +438,12 @@ setInterval(function(){
   var container = document.getElementById("sub-main").style.display = "block";
  
 
-}},1000*1); //1000 = 1 second * multiplier for updating
+}},1000*60); //1000 = 1 second * multiplier for updating
+
+//secret embed code
+/* <object type="text/html" 
+          data="https://docs.google.com/document/d/e/2PACX-1vT1ryTAzKJNky8D2h5QhltT7vvFUfnpR1OcJcUOQzlqWL-Xh7nDP7dbO3Npk8GHK7LBrDABf_CiLPS-/pub?embedded=true" 
+          width="3000" 
+          height="200px"
+          >
+          </object>*/
