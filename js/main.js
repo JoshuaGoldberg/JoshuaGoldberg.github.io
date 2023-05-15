@@ -68,10 +68,6 @@ function getInfo(lunchMenu) { // Bypassing CORS using JSONP
   }
 }
 
-var subInfo = new HttpClient();
-subInfo.get(baseEndpoint2, function(response) {
-    document.getElementById("sub-body").innerHTML = subInfo;
-});
 
 
 //subBlocks.days[today.getDay()].teachers_out[1].teacher.name
@@ -438,7 +434,17 @@ setInterval(function(){
   var container = document.getElementById("sub-main").style.display = "block";
  
 
-}},1000*60); //1000 = 1 second * multiplier for updating
+}
+},1000*60); //1000 = 1 second * multiplier for updating
+
+var subInfo = new HttpClient();
+function updateSubList(){
+  subInfo.get(baseEndpoint2, function(response) {
+    document.getElementById("sub-body").innerHTML = response;
+  });
+}
+
+setInterval(updateSubList(), 1000 * 60);
 
 //secret embed code
 /* <object type="text/html" 
