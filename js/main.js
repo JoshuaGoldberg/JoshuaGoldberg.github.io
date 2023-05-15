@@ -430,7 +430,7 @@ setInterval(function(){
   //delete later
   //var container = document.getElementById("sub-main").style.display = "block";
 }
-},1000*1); //1000 = 1 second * multiplier for updating
+},1000); //1000 = 1 second * multiplier for updating
 
 var subInfo = new HttpClient();
 function updateSubList(){
@@ -439,7 +439,7 @@ function updateSubList(){
   });
 }
 
-setInterval(updateSubList(), 1000 * 60);
+setInterval(updateSubList(), 1000);
 
 //secret embed code
 /* <object type="text/html" 
