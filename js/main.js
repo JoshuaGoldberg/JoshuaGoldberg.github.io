@@ -1,5 +1,5 @@
 var baseEndpoint = "https://aspencheck.herokuapp.com/api/v1/ma-melrose"
-var baseEndpoint2 = "https://script.google.com/macros/s/AKfycbxhjSrH5RQnjvNxQp4udXR0EtKUrSecti-Yw3kBANbLRPirCoKFsPUZo9YFM33-pVuW/exec"
+var baseEndpoint2 = "https://script.google.com/macros/s/AKfycbwbjHUqbiuim-dx1aRxkczR4c6O0AU8Q2iw6HtKlFnL-fh5X4x6w-F0QrAmWlzVc3kt/exec"
 
 var today = new Date();
 var day;
@@ -406,8 +406,6 @@ function refreshPushNotfificationStatus() {
   });
 }
 
-
-
 setInterval(function(){
   var date = new Date();
   var differenceMorning = date.getMinutes() - 17
@@ -429,13 +427,10 @@ setInterval(function(){
     var container = document.getElementById("sub-main").style.display = "none";
     var container = document.getElementById("announcements").style.display = "block";
   }
-
   //delete later
-  var container = document.getElementById("sub-main").style.display = "block";
- 
-
+  //var container = document.getElementById("sub-main").style.display = "block";
 }
-},1000*60); //1000 = 1 second * multiplier for updating
+},1000*1); //1000 = 1 second * multiplier for updating
 
 var subInfo = new HttpClient();
 function updateSubList(){
