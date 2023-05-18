@@ -73,19 +73,6 @@ ul {
   align-items: stretch;
   font-size: large;
 }
-#sub-body p {
-  margin: 0;
-}
-#needtowrap p + p {
-  text-indent: 1em;
-}
-
-.left{
-  width: 45%;
-  float: left; }
-  .right{
-  width: 45%;
-  float: right; }
 
 .announcement-title {
   font-style: italic;
