@@ -69,10 +69,23 @@ ul {
   display: flex;
   border-bottom: solid #f2dede thin;
   overflow: hidden;
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
-  font-size: larger;
+  font-size: large;
 }
+#sub-body p {
+  margin: 0;
+}
+#needtowrap p + p {
+  text-indent: 1em;
+}
+
+.left{
+  width: 45%;
+  float: left; }
+  .right{
+  width: 45%;
+  float: right; }
 
 .announcement-title {
   font-style: italic;
@@ -214,5 +227,6 @@ ul {
   #mainInfoWrapper{
     font-size: 3em;
   }
+
 }
 
