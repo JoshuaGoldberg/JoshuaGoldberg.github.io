@@ -2,7 +2,7 @@ const container = document.getElementById("blog-posts");
 
 const posts = [
   {
-    title: "Arc Raiders is a detriment to my work ethic",
+    title: "2026 and the road ahead",
     date: "12/23/2025",
     preview: "And a little more on the extraction shooter genre as a whole",
     link: "blog1.html",
