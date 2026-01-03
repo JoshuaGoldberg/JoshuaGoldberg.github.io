@@ -119,8 +119,9 @@ class Unit extends GameInteractable {
     }
 
     this.button.appendChild(tooltipSpan);
+    const lockedAudio = new Audio("/assets/locked.wav");
 
-    this.button.addEventListener("click", () => this.purchase());
+    this.button.addEventListener("click", () => this.purchase(lockedAudio));
     container.appendChild(this.button);
   }
 
@@ -128,7 +129,7 @@ class Unit extends GameInteractable {
     this.iconField.textContent = icon;
   }
 
-  purchase() {
+  purchase(lockedAudio) {
     if (totalPoints >= this.currentCost) {
       if (this.proofGain > 0) {
         pointsDisplay.item(1).classList.add("show");
@@ -139,6 +140,11 @@ class Unit extends GameInteractable {
       this.owned++;
       this.ownedLine.textContent = "Currently Employed: " + this.owned;
       this.costField.textContent = this.currentCost;
+
+      const audio = new Audio("/assets/click.wav");
+      audio.play();
+    } else {
+      lockedAudio.play();
     }
   }
 }
@@ -189,6 +195,12 @@ class Upgrade extends GameInteractable {
         this.button.addEventListener("animationend", () => {
           this.remove();
         });
+
+        const audio = new Audio("/assets/upgrade-buy.wav");
+        audio.play();
+      } else {
+        const audio = new Audio("/assets/locked.wav");
+        audio.play();
       }
     });
 
@@ -224,6 +236,9 @@ profileImage.addEventListener("click", () => {
       const randomAnim = Math.floor(Math.random() * 2);
       profileImage.classList.add(randomAnim === 0 ? "jiggle" : "jiggle-alt");
     });
+
+    const audio = new Audio("/assets/click.wav");
+    audio.play();
   }
 });
 
