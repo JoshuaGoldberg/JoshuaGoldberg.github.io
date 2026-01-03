@@ -18,6 +18,7 @@ let errorPopup = 0;
 // alternate search pattern
 const pointsElement = document.getElementById("points");
 const proofsElement = document.getElementById("proofs");
+const mainBox = document.getElementById("main-box");
 
 function updatePoints(amount) {
   totalPoints += amount;
@@ -465,6 +466,7 @@ secretImage.addEventListener("click", startGame);
 function startGame() {
   profileImage.classList.add("clickable-small");
   pointsDisplay.item(0).classList.add("show");
+  mainBox.classList.add("page-box-small");
   secretImage.style.visibility = "hidden";
   upgradeBox.classList.add("show");
   unitBox.classList.add("show");

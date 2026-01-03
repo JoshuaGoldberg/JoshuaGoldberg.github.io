@@ -36,7 +36,7 @@
 .page-box {
   position: relative;
   align-items: center;
-  width: 30%;
+  width: 50%;
   padding: 32px;
   border-radius: 32px;
   background-color: beige;
@@ -45,6 +45,11 @@
   left: 50%;
   transform: translateX(-50%);
   border: medium solid goldenrod;
+  transition: all 0.2s ease;
+}
+
+.page-box-small {
+  width: 30%;
 }
 
 .page-box.special-error-box {
