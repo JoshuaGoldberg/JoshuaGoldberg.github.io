@@ -39,7 +39,7 @@ const projects = [
     title: "Tap.py",
     preview:
       "A small (and currently incomplete) clicker game written in Python, with the goal of fleshing out complex systems.",
-    link: "/project/projects/osu_project.html",
+    link: "/project/projects/clicker_project.html",
     tag: tags.PERSONAL,
   },
   {
@@ -47,7 +47,7 @@ const projects = [
     preview:
       "Initially just a joke, this is a basic implementation of an evil Wordle clone. Mainly created to showcase skills learned from" +
       " CS2510, Northeastern's second fundamental computer science course.",
-    link: "/project/projects/osu_project.html",
+    link: "/project/projects/wordle_project.html",
     tag: tags.PERSONAL,
   },
 ];
