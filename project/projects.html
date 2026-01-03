@@ -18,7 +18,15 @@
         <hr style="width: 100%; border: 1px solid black; margin-top: 1px" />
       </div>
       <script src="/project/project_script.js"></script>
-      <a class="centered" href="/index.html">Return</a>
+      <a
+        class="centered"
+        href="/index.html"
+        onclick="
+          history.back();
+          return false;
+        "
+        >Return</a
+      >
     </div>
   </body>
   <div id="footer"></div>
