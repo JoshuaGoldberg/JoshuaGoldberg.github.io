@@ -145,6 +145,16 @@ class Unit extends GameInteractable {
       audio.play();
     } else {
       lockedAudio.play();
+      this.button.classList.add("locked-move-1");
+
+      setTimeout(() => {
+        this.button.classList.add("locked-move-2");
+
+        setTimeout(() => {
+          this.button.classList.remove("locked-move-1");
+          this.button.classList.remove("locked-move-2");
+        }, 30);
+      }, 30);
     }
   }
 }
@@ -184,6 +194,7 @@ class Upgrade extends GameInteractable {
     tooltipSpan.classList.add("tooltiptext");
     tooltipSpan.textContent = this.tooltipText;
     this.button.appendChild(tooltipSpan);
+    const lockedAudio = new Audio("/assets/locked.wav");
 
     this.button.addEventListener("click", () => {
       if (totalPoints >= this.cost && !this.disabled) {
@@ -199,8 +210,15 @@ class Upgrade extends GameInteractable {
         const audio = new Audio("/assets/upgrade-buy.wav");
         audio.play();
       } else {
-        const audio = new Audio("/assets/locked.wav");
-        audio.play();
+        lockedAudio.play();
+        setTimeout(() => {
+          this.button.classList.add("locked-move-2");
+
+          setTimeout(() => {
+            this.button.classList.remove("locked-move-1");
+            this.button.classList.remove("locked-move-2");
+          }, 30);
+        }, 30);
       }
     });
 

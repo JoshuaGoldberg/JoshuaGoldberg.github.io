@@ -262,6 +262,14 @@
   animation: jiggle 0.3s ease-in-out;
 }
 
+.side-button.locked-move-1 {
+  transform: translateX(15%);
+}
+
+.side-button.locked-move-2 {
+  transform: translateX(-15%);
+}
+
 @keyframes jiggle-alt {
   0%,
   100% {
