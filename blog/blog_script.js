@@ -3,7 +3,7 @@ const container = document.getElementById("blog-posts");
 const posts = [
   {
     title: "Blogs Are Cool",
-    date: "12/20/2025",
+    date: "1/02/2025",
     preview:
       "A brief history of this websites creation, and perhaps a critique of my own procrastination.",
     link: "/blog/blog-posts/web_blog.html",
