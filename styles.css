@@ -10,7 +10,7 @@
 
 .error-page-body {
   font-family: Verdana, Helvetica, sans-serif;
-  background-color: gray;
+  background-color: rgb(37, 37, 37);
 }
 
 .error-icon {
@@ -54,7 +54,7 @@
 
 .page-box.special-error-box {
   background-color: rgb(178, 162, 206);
-  border: medium solid rgb(28, 21, 29);
+  border: medium solid rgb(0, 0, 0);
 }
 
 .info-panel {
