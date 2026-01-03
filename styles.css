@@ -95,6 +95,12 @@
   font-style: italic;
 }
 
+.project-tag {
+  font-size: 1em;
+  margin-left: auto;
+  font-style: italic;
+}
+
 .works-panel p {
   margin-top: 1px;
 }
