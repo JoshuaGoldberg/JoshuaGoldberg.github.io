@@ -5,8 +5,8 @@ const posts = [
     title: "Blogs Are Cool",
     date: "12/20/2025",
     preview:
-      "A brief history of this websites creation (and by brief I mean <i>brief</i>)",
-    link: "blog2.html",
+      "A brief history of this websites creation, and perhaps a critique of my own procrastination.",
+    link: "/blog/blog-posts/web_blog.html",
   },
 ];
 
