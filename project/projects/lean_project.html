@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blog</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="front-page-body">
+    <div class="page-box" id="blog-posts">
+      <div style="text-align: center">
+        <h1>Lean Measure</h1>
+      </div>
+      <div class="info-panel">
+        <p>
+          Lean Measure is an ongoing project in collaboration with Joshua
+          Gancher, Steven Holtzen, Jialu Bao, and John Li.
+        </p>
+        <hr style="width: 100%; border: 1px solid black; margin-top: 1px" />
+        <p>Check back soon!</p>
+      </div>
+      <a
+        class="centered"
+        href="/index.html"
+        onclick="
+          if (history.length > 1) {
+            history.back();
+            return false;
+          }
+        "
+        >Return</a
+      >
+    </div>
+    <div id="footer"></div>
+    <script src="/add_footer.js"></script>
+  </body>
+</html>

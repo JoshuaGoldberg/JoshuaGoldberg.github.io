@@ -10,21 +10,21 @@ const projects = [
   {
     title: "Lean Measure",
     preview: "An ongoing project to define probabilistic spaces in Lean 4.",
-    link: "lean_project.html",
+    link: "/project/projects/lean_project.html",
     tag: tags.RESEARCH,
   },
   {
     title: "Owl Lean",
     preview:
       "Bidirectional Typechecker for the security language Owl, written in Lean 4.",
-    link: "owl_project.html",
+    link: "/project/projects/owl_project.html",
     tag: tags.RESEARCH,
   },
   {
     title: "JustinBot 3000",
     preview:
-      "Agentic Chatbot created to assist TA's within foundational Cybersecurity courses. Utilized Retrieval-Augmented Generation (RAG) for targeted responses.",
-    link: "cybersecurity_project.html",
+      "Agentic Chatbot created to assist TA's within foundational Cybersecurity courses. Utilizes Retrieval-Augmented Generation (RAG) for targeted responses.",
+    link: "/project/projects/cybersecurity_project.html",
     tag: tags.ACADEMIC,
   },
   {
@@ -32,14 +32,14 @@ const projects = [
     preview:
       "A replay renderer for the rhythm game osu!mania, utilizing LZMA decompression and" +
       " a ground up recreation of the game for recording purposes.",
-    link: "osu_project.html",
+    link: "/project/projects/osu_project.html",
     tag: tags.PERSONAL,
   },
   {
     title: "Tap.py",
     preview:
       "A small (and currently incomplete) clicker game written in Python, with the goal of fleshing out complex systems.",
-    link: "osu_project.html",
+    link: "/project/projects/osu_project.html",
     tag: tags.PERSONAL,
   },
   {
@@ -47,7 +47,7 @@ const projects = [
     preview:
       "Initially just a joke, this is a basic implementation of an evil Wordle clone. Mainly created to showcase skills learned from" +
       " CS2510, Northeastern's second fundamental computer science course.",
-    link: "osu_project.html",
+    link: "/project/projects/osu_project.html",
     tag: tags.PERSONAL,
   },
 ];

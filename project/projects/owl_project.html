@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blog</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css"
+    />
+  </head>
+  <body class="front-page-body">
+    <div class="page-box" id="blog-posts">
+      <div style="text-align: center">
+        <h1>Owl Lean</h1>
+      </div>
+      <div class="info-panel">
+        <hr style="width: 100%; border: 1px solid black; margin-top: 1px" />
+        <p>
+          Owl Lean is a typechecker for Owl, developed during my research co-op
+          at the PRL, advised by Joshua Gancher. While certain features may be
+          added in the future, it is in a "complete" state.
+        </p>
+        <p>
+          Currently, it implements bidrectional typing and proof generation to
+          allow for information and label flow which would would otherwise prove
+          tricky to implement. It combined this with Lean's "grind" tactic to
+          efficiently resolve proof obligations. This is combined with an easy
+          to use interface that allows us to write up programs in Owl syntax to
+          see if they properly typecheck. An example of this is the following
+          code:
+        </p>
+        <pre><code class="language-haskell">theorem simple :
+  ( · ; · ; · ; · ⊢ * : Unit) :=  by
+  tc_man (
+    try simp
+  )</code></pre>
+        <p>
+          This defines a theorem in Lean that aims to prove that * (representing
+          "Skip" in Owl) has the type of Unit. This is true within Owl, as * is
+          always assumed to have type Unit. In order to prove this theorem true,
+          we use a tactic called "tc_man", which automatically tries to generate
+          a proof that the code typechecks properly. If so, it provides a list
+          of obligations that the user must then manually prove (an automatic
+          version of "tc_man" also exists, but giving the user control over
+          checking side conditions typically makes for easier debugging). In
+          this case, the side conditions are trivial (specifically, the user
+          will need to prove <code>True ∧ True</code>). As a result, a call to
+          the "simp" tactic resolves the theorem, and finishes the proof.
+        </p>
+        <p>
+          We can expand this to more complicated typechecking proofs. For
+          instance:
+        </p>
+        <pre><code class="language-haskell">theorem enc_ty :
+  ( · ; · ; · ; · ⊢
+      pack (Unit, *)
+      :
+      (∃ alphaK <: Unit . alphaK)) :=
+    by
+    tc_man (
+      try simp
+      try auto_solve
+    )</code></pre>
+        <p>
+          In this instance, the term we are typechecking is a Pack that defines
+          a witness type of Unit, and an implementation of * (once again, our
+          "skip" term). The type it is being checked against is the Existential
+          type, which is claiming that an arbitrary type "alphaK" exists such
+          that the implementation has type "alphaK". Typically, this is done by
+          plugging in the witness type into the Existential. In this case, we do
+          "alphaK" = Unit, which when substituted in leaves us with just Unit.
+          We know that * has type Unit, so this should hold true. In order to
+          actually prove it, we can once again make a call to the "simp" tactic
+          to resolve the theorem. This example also uses an additional tactic
+          called "auto_solve", which is needed to solve harder side conditions,
+          but is actually not needed here as the side conditions resolve to a
+          series of trivial True results, much like the prior proof. The
+          "auto_solve" tactic is very important however, as most complicated
+          typechecking proofs will require it.
+        </p>
+        <p>
+          While the above examples are pretty simple, the beauty of this
+          typechecker is its ability to scale up to larger programs. For
+          instance, the following example will successfully typecheck in our
+          program:
+        </p>
+        <pre><code class="language-haskell">theorem enc_sig :
+  ( · ; · ; · ; · ⊢
+    Λβ betaK .
+    Λ tau .
+    corr_case betaK in
+    (if corr (betaK) then
+      ((let sk = ⟨"genSK"⟩(["0"], ["0"]) in
+      let vk = ⟨"vk_of_sk"⟩(sk, ["0"]) in
+      pack(Public, pack (Public, ⟨sk, ⟨vk,
+                    ⟨((λ xy => ⟨"sign"⟩(π1 xy, π2 xy)) : (Public * Public) -> Public),
+                     ((λ xyz => ⟨"vrfy"⟩(π1 xyz, π1 (π2 xyz))) : (Public * (Public * Public)) -> Public)⟩⟩⟩))) :
+                     ∃ alpha <: Data betaK .
+                     ∃ beta <: Public .
+                     (alpha *
+                     (beta *
+                     ((corr (betaK) ? ((Public * Public) -> Public) : ((alpha * tau) -> Public)) *
+                     (corr (betaK) ? ((Public * (Public * Public)) -> Public) : ((beta * (Public * Public)) -> (tau + Unit)))))))
+    else
+      ((let sk = ⟨"genSK"⟩(["0"], ["0"]) in
+      let pk = ⟨"vk_of_sk"⟩(["0"], ["0"]) in
+      let L = ((alloc (λ (null : (Public * Public)) : (tau + Unit) => (ı2 *))) : Ref ((Public * Public) -> (tau + Unit))) in
+      let sign =  ((λ (skm : (Data betaK * tau)) : Public =>
+                  let sig = (⟨"rand"⟩(((π2 skm) : Public), ["0"]) : Public) in
+                  let L_old = (! L) in
+                  let action =  (L := (λ (msig' : (Public * Public)) : (tau + Unit) => if ⟨"and"⟩(⟨"eq"⟩(π2 skm, π2 msig'), ⟨"eq"⟩(sig, π2 msig'))
+                                                then (ı1 (π2 skm))
+                                                else L_old [msig']))
+                  in
+                  sig) : (((Data betaK * tau) -> Public)))
+      in
+      let vrfy = ((λ vkmsig =>
+                  (! L) [⟨π1 (π2 vkmsig), π2 (π2 vkmsig)⟩]) : ((Public * (Public * Public)) -> (tau + Unit))) in
+      pack(Data betaK, pack(Public, ⟨sk, ⟨pk, ⟨sign, vrfy⟩⟩⟩))) :
+      ∃ alpha <: Data betaK .
+      ∃ beta <: Public .
+      (alpha *
+      (beta *
+      ((corr (betaK) ? ((Public * Public) -> Public) : ((alpha * tau) -> Public)) *
+       (corr (betaK) ? ((Public * (Public * Public)) -> Public) : ((beta * (Public * Public)) -> (tau + Unit))))))))
+    :
+    ∀ betaK ⊒ ⟨Owl.L.bot⟩ .
+    ∀ tau <: Public .
+    ∃ alpha <: Data betaK .
+    ∃ beta <: Public .
+    (alpha *
+    (beta *
+    ((corr (betaK) ? ((Public * Public) -> Public) : ((alpha * tau) -> Public)) *
+     (corr (betaK) ? ((Public * (Public * Public)) -> Public) : ((beta * (Public * Public)) -> (tau + Unit))))))
+    ) :=
+    by
+    tc_man (
+      try simp
+      auto_solve_fast
+    )</code></pre>
+        <p>
+          Which is in itself a pretty big achievement. As mentioned above, while
+          the project can be considered complete, there is still future work to
+          be done, mostly in the form of optimizations and logical changes
+          depending on how Owl itself evolves as a language. Even so, the
+          current implemention of Owl Lean proves impressive at handling the
+          typechecking of both simple and complex Owl programs.
+        </p>
+      </div>
+      <a
+        class="centered"
+        href="/index.html"
+        onclick="
+          if (history.length > 1) {
+            history.back();
+            return false;
+          }
+        "
+        >Return</a
+      >
+    </div>
+    <div id="footer"></div>
+    <script src="/add_footer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/haskell.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>
