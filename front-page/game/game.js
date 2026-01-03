@@ -243,21 +243,21 @@ const unit0 = new Unit(
   "Ready to put their coding skills to use. Sadly classes make them much less productive. Grants 0.1 points/s at base.",
   "🙂",
   25,
-  0.1,
+  0.1
 );
 const unit1 = new Unit(
   "College Intern",
   "An aspiring CS student getting their first taste of the real world. As a result, they're cheap labor. Grants 1 point/s at base.",
   "🙂",
   120,
-  1,
+  1
 );
 const unit2 = new Unit(
   "Entry Level Programmer",
   "Fresh out of university, frankly just happy to have a job. Grants 15 point/s at base.",
   "🙂",
   1500,
-  15,
+  15
 );
 const unit3 = new Unit(
   "Research Assistant",
@@ -265,7 +265,7 @@ const unit3 = new Unit(
   "🙂",
   2000,
   1,
-  0.01,
+  0.01
 );
 const unit4 = new Unit(
   "Graduate Student",
@@ -273,7 +273,7 @@ const unit4 = new Unit(
   "🧑‍🎓",
   15000,
   25,
-  0.1,
+  0.1
 );
 const unit5 = new Unit(
   "Post Doctorate",
@@ -281,14 +281,14 @@ const unit5 = new Unit(
   "🧑‍🎓",
   100000,
   50,
-  0.5,
+  0.5
 );
 const unit6 = new Unit(
   "Developer",
   "A hard (perhaps overworked) worker in the industry. Their true passion, however, is secretly opera singing. Grants 100 points/s at base.",
   "🧑‍💻",
   15000,
-  100,
+  100
 );
 const unit7 = new Unit(
   "Senior Developer",
@@ -296,7 +296,7 @@ const unit7 = new Unit(
     " Also tends to play lots of Runescape when nobody is looking. Grants 750 points/s at base.",
   "🧑‍💻",
   120000,
-  750,
+  750
 );
 
 const unit8 = new Unit(
@@ -306,7 +306,7 @@ const unit8 = new Unit(
   "🧑‍🏫",
   750000,
   200,
-  4,
+  4
 );
 
 const unit9 = new Unit(
@@ -314,7 +314,7 @@ const unit9 = new Unit(
   "Truth be told, they don't seem to do any work at all. But they'll hire developers and claim credit for the work. Hey, points are points, right? Grants 5000 points/s at base.",
   "🤑",
   1000000,
-  5000,
+  5000
 );
 
 const unit10 = new Unit(
@@ -322,7 +322,7 @@ const unit10 = new Unit(
   "Hands over all code development to our new generative AI, ClaudeGPT 5.0! Surely nothing bad would ever happen. Grants ∞ points/s at base.",
   "🤖",
   1,
-  0,
+  0
 );
 
 // initialize units
@@ -348,7 +348,7 @@ const upgradeInitial = new Upgrade(
   0,
   () => {
     totalPoints += 1;
-  },
+  }
 );
 
 const upgrade0 = new Upgrade(
@@ -359,7 +359,7 @@ const upgrade0 = new Upgrade(
   () => {
     unit0.ppsGain *= 2;
     unit0.changeIcon("😎");
-  },
+  }
 );
 const upgrade1 = new Upgrade(
   "Caffeinated Drinks",
@@ -370,7 +370,7 @@ const upgrade1 = new Upgrade(
     clickMulti *= 2;
     can.classList.add("show");
     bottle.classList.add("show");
-  },
+  }
 );
 const upgrade2 = new Upgrade(
   "80 hour work weeks",
@@ -380,7 +380,7 @@ const upgrade2 = new Upgrade(
   () => {
     unit1.ppsGain *= 2;
     unit1.changeIcon("😢");
-  },
+  }
 );
 const upgrade3 = new Upgrade(
   "Wollaston's Sandwich",
@@ -389,7 +389,7 @@ const upgrade3 = new Upgrade(
   500,
   () => {
     clickMulti *= 2;
-  },
+  }
 );
 const upgrade4 = new Upgrade(
   "Recreation Rooms",
@@ -398,7 +398,7 @@ const upgrade4 = new Upgrade(
   5000,
   () => {
     unit2.ppsGain *= 2;
-  },
+  }
 );
 const upgrade5 = new Upgrade(
   "Corporate Pizza Party",
@@ -411,7 +411,7 @@ const upgrade5 = new Upgrade(
     unit1.ppsGain *= 1.1;
     unit2.changeIcon("😐");
     unit1.changeIcon("😐");
-  },
+  }
 );
 const upgrade6 = new Upgrade(
   "`try grind`",
@@ -422,7 +422,7 @@ const upgrade6 = new Upgrade(
   () => {
     unit2.proofGain *= 2;
   },
-  true,
+  true
 );
 const upgrade7 = new Upgrade(
   "160 hour work weeks",
@@ -432,7 +432,7 @@ const upgrade7 = new Upgrade(
   () => {
     unit1.ppsGain *= 2;
     unit1.changeIcon("🫩");
-  },
+  }
 );
 const upgrade8 = new Upgrade(
   "Winter Break",
@@ -442,7 +442,7 @@ const upgrade8 = new Upgrade(
   () => {
     unit0.ppsGain *= 4;
     unit0.changeIcon("⛄");
-  },
+  }
 );
 
 // initialize upgrade
@@ -476,7 +476,7 @@ function startGame() {
 function createErrorIcon(container) {
   const error = document.createElement("img");
   error.classList.add("error-icon");
-  error.setAttribute("src", "./assets/error.jpg");
+  error.setAttribute("src", "/assets/error.jpg");
 
   const randomX = Math.floor(Math.random() * 100);
   const randomY = Math.floor(Math.random() * 100);
@@ -494,7 +494,7 @@ function deleteElements(container) {
   createErrorIcon(container);
 
   if (errorPopup >= 2) {
-    const audio = new Audio("./assets/error.mp3");
+    const audio = new Audio("/assets/error.mp3");
     const result = audio.play();
     errorPopup = 0;
   } else {
@@ -623,7 +623,7 @@ function gameLogicLoop() {
   if (unit10.owned >= 1) {
     const dataLeft = deleteElements(frontPage);
     if (dataLeft.length === 0) {
-      window.location.href = "./front-page/game/critical-game-error.html";
+      window.location.href = "/front-page/game/critical-game-error.html";
     }
   }
 }

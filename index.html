@@ -1,74 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Welcome!</title>
-        <link rel="stylesheet" href="./styles.css">
-    </head>
-    <body class="front-page-body">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome!</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="front-page-body">
     <div class="page-box">
-        <img class="profile-image" src="./assets/web_profile.jpg" alt="Picture of me!">
-        <img class="cool-soda" src="./assets/soda_bottle.jpg" alt="Soda_Bottle">
-        <img class="cool-can" src="./assets/can.jpg" alt="Soda_Can">
-        <p class="points-display">Points: <span id="points">0</span></p>
-        <p class="points-display">Proofs: <span id="proofs">0</span></p>
-        <div style="text-align: center;">
-            <h1 class="title">Hello, I'm Josh</h1>
-        </div>
-        <div class="info-panel">
-            <p>My name is Joshua Goldberg, and I'm a third year ar Northeastern University, pursuing a degree in Computer Science (with some math sprinkled in as a minor because I like numbers to a certain extent).
-                Back in high school, I used to write code from time to time. One day, I realized that coding was something I'd like to spend more time doing, and that's brought me to where I am today.</p>
+      <img
+        class="profile-image"
+        src="/assets/web_profile.jpg"
+        alt="Picture of me!"
+      />
+      <img class="cool-soda" src="/assets/soda_bottle.jpg" alt="Soda_Bottle" />
+      <img class="cool-can" src="/assets/can.jpg" alt="Soda_Can" />
+      <p class="points-display">Points: <span id="points">0</span></p>
+      <p class="points-display">Proofs: <span id="proofs">0</span></p>
+      <div style="text-align: center">
+        <h1 class="title">Hello, I'm Josh</h1>
+      </div>
+      <div class="info-panel">
+        <p>
+          My name is Joshua Goldberg, and I'm a third year ar Northeastern
+          University, pursuing a degree in Computer Science (with some math
+          sprinkled in as a minor because I like numbers to a certain extent).
+          Back in high school, I used to write code from time to time. One day,
+          I realized that coding was something I'd like to spend more time
+          doing, and that's brought me to where I am today.
+        </p>
 
-            <p>Now, after 2.5 years of college, I still write code from time to time, but at least I feel decently more productive about it.</p>
+        <p>
+          Now, after 2.5 years of college, I still write code from time to time,
+          but at least I feel decently more productive about it.
+        </p>
 
-            <p>As of July 2025, I am currently working as a Research Assistant at Northeastern's Programming Languages Lab. You can find more about the work I'm doing at the PRL <a href="project/projects.html"><i>here</i></a>. I'm also always interested in getting involved with more PL related research (time permitting), so if you see this and have any opportunities, feel free to reach out!</p>
+        <p>
+          As of July 2025, I am currently working as a Research Assistant at
+          Northeastern's Programming Languages Lab. You can find more about the
+          work I'm doing at the PRL
+          <a href="project/projects.html"><i>here</i></a
+          >. I'm also always interested in getting involved with more PL related
+          research (time permitting), so if you see this and have any
+          opportunities, feel free to reach out!
+        </p>
 
-            <p>I am also a member of Northeastern's Electric Racing team (NER), working as a technical lead on various web development projects for our main website <a href="https://finishlinebyner.com/" target="_blank" rel="noopener noreferrer">Finishline</a>,
-                including Calendar and Finance overhauls. You can check out our work <a href="https://github.com/Northeastern-Electric-Racing/FinishLine" target="_blank" rel="noopener noreferrer"><i>here</i></a>.</p>
+        <p>
+          I am also a member of Northeastern's Electric Racing team (NER),
+          working as a technical lead on various web development projects for
+          our main website
+          <a
+            href="https://finishlinebyner.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Finishline</a
+          >, including Calendar and Finance overhauls. You can check out our
+          work
+          <a
+            href="https://github.com/Northeastern-Electric-Racing/FinishLine"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i>here</i></a
+          >.
+        </p>
 
-            <p>Finally, if you want to know more about me, please check the links below. You can also contact me at <b>goldberg.josh@northeastern.edu</b>, or on Discord (<b>crabchip</b>) if you want to talk more frequently/urgently, as I tend to check it on a more regular basis.</p>
-        </div>
-        <div class="sub-panel">
-            <h3> Site Links </h3>
-            <hr style="width:100%; border: 1px solid black; margin-top: 1px">
-            <p> <a href="./web-resume.pdf" target="_blank" rel="noopener noreferrer">Resume (Last Updated December 1, 2025)</a> </p>
-            <p> <a href="./project/projects.html">Projects</a> </p>
-            <p> <a href="./blog/blog.html">Blog</a> </p>
-            <h3 style="margin-top: 24px"> Social Links </h3>
-            <hr style="width:100%; border: 1px solid black; margin-top: 1px">
-            <p> <a href="https://github.com/JoshuaGoldberg" target="_blank" rel="noopener noreferrer">Github</a> </p>
-            <p> <a href="https://www.linkedin.com/in/joshua-j-goldberg/" target="_blank" rel="noopener noreferrer">LinkedIn</a> (<b>Warning</b>: I barely check this) </p>
-            <p> <a href="mailto:goldberg.josh@northeastern.edu" target="_blank" rel="noopener noreferrer">Send Email</a> </p>
-        </div>
-        </div>
-        </body>
-        <div id="footer"></div>
-        <script src="./add_footer.js"></script>
-        <footer class="sub-panel" style="margin-top: 2rem; font-size: 0.8rem; color: gray; align-items: center;">
-            <img class="secret-image clickable" src="./assets/cookie.jpg" alt="The secret cookie">
-        </footer>
-        <div class="game-container left">
-            <div class="game-box left-game-box" id="upgrades">
-                <h2 class="game-title"> General Upgrades </h2>
-                <hr style="width:90%; border: 2px solid black; border-radius: 1px">
-            </div>
-            <div class="game-box left-game-box" id="research-upgrades">
-                <h2 class="game-title"> Research Upgrades </h2>
-                <hr style="width:90%; border: 2px solid black; border-radius: 1px">
-            </div>
-        </div>
-        <div class="game-container right">
-            <div class="game-box right-game-box" id="workers">
-                <h2 class="game-title"> Workers </h2>
-                <hr style="width:90%; border: 2px solid black; border-radius: 1px">
-            </div>
-            <div class="game-box right-game-box" id="researchers">
-                <h2 class="game-title"> Researchers </h2>
-                <hr style="width:90%; border: 2px solid black; border-radius: 1px">
-            </div>
+        <p>
+          Finally, if you want to know more about me, please check the links
+          below. You can also contact me at
+          <b>goldberg.josh@northeastern.edu</b>, or on Discord (<b>crabchip</b>)
+          if you want to talk more frequently/urgently, as I tend to check it on
+          a more regular basis.
+        </p>
+      </div>
+      <div class="sub-panel">
+        <h3>Site Links</h3>
+        <hr style="width: 100%; border: 1px solid black; margin-top: 1px" />
+        <p>
+          <a href="/web-resume.pdf" target="_blank" rel="noopener noreferrer"
+            >Resume (Last Updated December 1, 2025)</a
+          >
+        </p>
+        <p><a href="/project/projects.html">Projects</a></p>
+        <p><a href="/blog/blog.html">Blog</a></p>
+        <h3 style="margin-top: 24px">Social Links</h3>
+        <hr style="width: 100%; border: 1px solid black; margin-top: 1px" />
+        <p>
+          <a
+            href="https://github.com/JoshuaGoldberg"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Github</a
+          >
+        </p>
+        <p>
+          <a
+            href="https://www.linkedin.com/in/joshua-j-goldberg/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          (<b>Warning</b>: I barely check this)
+        </p>
+        <p>
+          <a
+            href="mailto:goldberg.josh@northeastern.edu"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Send Email</a
+          >
+        </p>
+      </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
-    <script src="./front-page/title_script.js"></script>
-    <script src="./front-page/game/game.js"></script>
+  </body>
+  <div id="footer"></div>
+  <script src="/add_footer.js"></script>
+  <footer
+    class="sub-panel"
+    style="
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: gray;
+      align-items: center;
+    "
+  >
+    <img
+      class="secret-image clickable"
+      src="/assets/cookie.jpg"
+      alt="The secret cookie"
+    />
+  </footer>
+  <div class="game-container left">
+    <div class="game-box left-game-box" id="upgrades">
+      <h2 class="game-title">General Upgrades</h2>
+      <hr style="width: 90%; border: 2px solid black; border-radius: 1px" />
+    </div>
+    <div class="game-box left-game-box" id="research-upgrades">
+      <h2 class="game-title">Research Upgrades</h2>
+      <hr style="width: 90%; border: 2px solid black; border-radius: 1px" />
+    </div>
+  </div>
+  <div class="game-container right">
+    <div class="game-box right-game-box" id="workers">
+      <h2 class="game-title">Workers</h2>
+      <hr style="width: 90%; border: 2px solid black; border-radius: 1px" />
+    </div>
+    <div class="game-box right-game-box" id="researchers">
+      <h2 class="game-title">Researchers</h2>
+      <hr style="width: 90%; border: 2px solid black; border-radius: 1px" />
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+  <script src="/front-page/title_script.js"></script>
+  <script src="/front-page/game/game.js"></script>
 </html>
