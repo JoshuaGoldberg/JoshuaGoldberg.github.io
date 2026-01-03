@@ -17,5 +17,3 @@ titleElement.addEventListener("click", () => {
     origin: { x: x, y: y },
   });
 });
-
-// fun front page stuff
