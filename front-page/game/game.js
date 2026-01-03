@@ -488,6 +488,8 @@ function startGame() {
   secretActivated = true;
   upgradeInitial.init(upgradeBox, upgradeArray);
   unit0.revealUnit(unitBox);
+  const audio = new Audio("/assets/click.wav");
+  audio.play();
 }
 
 function createErrorIcon(container) {
