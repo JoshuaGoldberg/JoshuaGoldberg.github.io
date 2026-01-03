@@ -23,8 +23,10 @@
         class="centered"
         href="/index.html"
         onclick="
-          history.back();
-          return false;
+          if (history.length > 1) {
+            history.back();
+            return false;
+          }
         "
         >Return</a
       >
