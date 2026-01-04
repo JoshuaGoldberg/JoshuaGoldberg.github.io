@@ -11,6 +11,7 @@ const projects = [
     title: "Lean Measure",
     preview: "An ongoing project to define probabilistic spaces in Lean 4.",
     link: "/project/projects/lean_project.html",
+    source: undefined,
     tag: tags.RESEARCH,
   },
   {
@@ -18,6 +19,7 @@ const projects = [
     preview:
       "Bidirectional Typechecker for the security language Owl, written in Lean 4.",
     link: "/project/projects/owl_project.html",
+    source: "https://github.com/JoshuaGoldberg/owl-lean",
     tag: tags.RESEARCH,
   },
   {
@@ -25,6 +27,7 @@ const projects = [
     preview:
       "Agentic Chatbot created to assist TA's within foundational Cybersecurity courses. Utilizes Retrieval-Augmented Generation (RAG) for targeted responses.",
     link: "/project/projects/cybersecurity_project.html",
+    source: "https://github.com/FrueanA/JustinBot3000",
     tag: tags.ACADEMIC,
   },
   {
@@ -33,6 +36,7 @@ const projects = [
       "A replay renderer for the rhythm game osu!mania, utilizing LZMA decompression and" +
       " a ground up recreation of the game for recording purposes.",
     link: "/project/projects/osu_project.html",
+    source: "https://github.com/JoshuaGoldberg/ManiaRenderer",
     tag: tags.PERSONAL,
   },
   {
@@ -40,6 +44,7 @@ const projects = [
     preview:
       "A small (and currently incomplete) clicker game written in Python, with the goal of fleshing out complex systems.",
     link: "/project/projects/clicker_project.html",
+    source: "https://github.com/JoshuaGoldberg/Tap.py",
     tag: tags.PERSONAL,
   },
   {
@@ -48,6 +53,7 @@ const projects = [
       "Initially just a joke, this is a basic implementation of an evil Wordle clone. Mainly created to showcase skills learned from" +
       " CS2510, Northeastern's second fundamental computer science course.",
     link: "/project/projects/wordle_project.html",
+    source: "https://github.com/JoshuaGoldberg/powerdle",
     tag: tags.PERSONAL,
   },
 ];
@@ -63,6 +69,12 @@ projects.forEach((project) => {
           </div>
           <hr style="width:100%; border: 1px solid black; margin-top: 3px">
           <p> ${project.preview} </p>
+          ${
+            project.source
+              ? `<p><a href="${project.source}" class="github-link" target="_blank"
+            rel="noopener noreferrer">(Source)</a></p>`
+              : `<p>(No Source Available)</p>`
+          }
       </div>
     `;
 });

@@ -478,3 +478,58 @@ pre {
   overflow-x: auto;
   font-size: 0.9rem;
 }
+
+.github-link::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+
+  background-image: url("/assets/github-icon.jpg");
+  background-size: contain;
+  vertical-align: -2px;
+}
+
+.source-link::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  background-image: url("/assets/github-icon.jpg");
+  background-size: contain;
+  vertical-align: -2px;
+}
+
+.linkedin-link::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  background-image: url("/assets/linkedin-icon.jpg");
+  background-size: contain;
+  vertical-align: -2px;
+}
+
+.own-link::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  background-image: url("/assets/web_profile.jpg");
+  background-size: contain;
+  vertical-align: -2px;
+}
+
+.external-link::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("/assets/external-link.jpg");
+  background-size: contain;
+  vertical-align: -2px;
+}
