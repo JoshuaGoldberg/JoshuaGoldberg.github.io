@@ -23,7 +23,10 @@
         class="centered"
         href="/index.html"
         onclick="
-          if (history.length > 1) {
+          if (
+            history.length > 1 &&
+            document.referrer.indexOf(window.location.host) !== -1
+          ) {
             history.back();
             return false;
           }
