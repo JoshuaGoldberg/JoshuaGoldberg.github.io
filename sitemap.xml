@@ -3,5 +3,21 @@
   <url>
     <loc>https://joshg.pl/</loc>
     <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://joshg.pl/blog/blog.html</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://joshg.pl/project/projects.html</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://joshg.pl/credits/credits.html</loc>
+    <priority>0.3</priority>
+    <changefreq>weekly</changefreq>
   </url>
 </urlset>
