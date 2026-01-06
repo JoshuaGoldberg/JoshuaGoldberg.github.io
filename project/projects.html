@@ -19,20 +19,8 @@
         <hr style="width: 100%; border: 1px solid black; margin-top: 1px" />
       </div>
       <script src="/project/project_script.js"></script>
-      <a
-        class="centered"
-        href="/index.html"
-        onclick="
-          if (
-            history.length > 1 &&
-            document.referrer.indexOf(window.location.host) !== -1
-          ) {
-            history.back();
-            return false;
-          }
-        "
-        >Return</a
-      >
+      <a class="centered" href="/index.html" id="return">Return</a>
+      <script src="/add_return.js"></script>
     </div>
   </body>
   <div id="footer"></div>
