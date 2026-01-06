@@ -355,7 +355,7 @@ const unit10 = new Unit(
   "Generative AI Agent",
   "Hands over all code development to our new generative AI, ClaudeGPT 5.0! Surely nothing bad would ever happen. Grants ∞ points/s at base.",
   "🤖",
-  1,
+  10000000,
   0
 );
 
