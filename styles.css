@@ -524,6 +524,17 @@ pre {
   vertical-align: -2px;
 }
 
+.discord-link::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  background-image: url("/assets/discord-icon.jpg");
+  background-size: contain;
+  vertical-align: -2px;
+}
+
 .external-link::after {
   content: "";
   display: inline-block;

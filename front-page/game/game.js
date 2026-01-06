@@ -208,6 +208,7 @@ class Upgrade extends GameInteractable {
         });
 
         const audio = new Audio("/assets/upgrade-buy.wav");
+        audio.volume = 0.35;
         audio.play();
       } else {
         lockedAudio.play();
