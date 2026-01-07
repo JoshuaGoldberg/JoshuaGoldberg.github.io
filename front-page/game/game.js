@@ -2,7 +2,7 @@ let totalPoints = 0;
 let pps = 0;
 let secretActivated = false;
 let lifetimePoints = 0;
-let clickMulti = 1;
+let clickMulti = 10000000;
 const profileImage = document.querySelector(".profile-image");
 const pointsDisplay = document.getElementById("points-d");
 const proofsDisplay = document.getElementById("proofs-d");
@@ -97,16 +97,20 @@ class Unit extends GameInteractable {
   createButton(container) {
     super.createButton();
 
+    const fullText = document.createElement("div");
+    fullText.classList.add("right-side-text");
+
     const nameSpan = document.createElement("span");
     nameSpan.textContent = this.name;
 
     this.costField = document.createElement("span");
     this.costField.textContent = this.currentCost;
 
-    this.button.appendChild(nameSpan);
-    this.button.appendChild(document.createTextNode(" : "));
-    this.button.appendChild(this.costField);
-    this.button.appendChild(document.createTextNode(" points"));
+    fullText.appendChild(nameSpan);
+    fullText.appendChild(document.createTextNode(" : "));
+    fullText.appendChild(this.costField);
+    fullText.appendChild(document.createTextNode(" points"));
+    this.button.appendChild(fullText)
 
     this.ownedLine = document.createElement("div");
     this.ownedLine.style.textAlign = "center";
@@ -185,16 +189,25 @@ class Upgrade extends GameInteractable {
   createButton(container) {
     super.createButton();
 
+    const fullText = document.createElement("div");
+    fullText.classList.add("left-side-text")
+
     const nameSpan = document.createElement("span");
+    
     nameSpan.textContent = this.name;
+    nameSpan.classList.add("left-side");
 
     const costSpan = document.createElement("span");
     costSpan.textContent = this.cost;
+    
 
-    this.button.appendChild(nameSpan);
-    this.button.appendChild(document.createTextNode(" : "));
-    this.button.appendChild(costSpan);
-    this.button.appendChild(document.createTextNode(" points"));
+
+    fullText.appendChild(nameSpan);
+    fullText.appendChild(document.createTextNode(" : "));
+    fullText.appendChild(costSpan);
+    fullText.appendChild(document.createTextNode(" points"));
+
+    this.button.appendChild(fullText);
 
     const iconSpan = document.createElement("span");
     iconSpan.textContent = this.icon;
@@ -252,6 +265,8 @@ class Upgrade extends GameInteractable {
       this.reveal();
       this.removeFromArray(array);
       if (this.proof) {
+        upgradeBox.classList.add("compress")
+        researchUpgradeBox.classList.add("compress");
         researchUpgradeBox.classList.add("show");
       }
     }
@@ -600,7 +615,10 @@ function gameLogicLoop() {
   unitArray.forEach((unit) => {
     if (lifetimePoints >= unit.currentCost / 2 && unit.proofGain < 0.1) {
       if (unit === unit3) {
+        unitBox.classList.add("compress");
         researchBox.classList.add("show");
+        researchBox.classList.add("compress");
+        
         unit.revealUnit(researchBox);
       } else {
         unit.revealUnit(unitBox);
