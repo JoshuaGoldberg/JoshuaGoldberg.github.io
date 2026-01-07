@@ -222,7 +222,20 @@
   display: none;
 }
 
+.points-display-mini {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin: auto;
+  display: none;
+}
+
 .points-display.show {
+  display: block;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.points-display-mini.show {
   display: block;
   animation: fadeIn 0.5s ease-in;
 }

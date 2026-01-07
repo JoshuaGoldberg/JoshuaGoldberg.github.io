@@ -2,9 +2,12 @@ let totalPoints = 0;
 let pps = 0;
 let secretActivated = false;
 let lifetimePoints = 0;
-let clickMulti = 1;
+let clickMulti = 10000000;
 const profileImage = document.querySelector(".profile-image");
-const pointsDisplay = document.querySelectorAll(".points-display");
+const pointsDisplay = document.getElementById("points-d");
+const proofsDisplay = document.getElementById("proofs-d");
+const ppsDisplay = document.getElementById("pps");
+const prpsDisplay = document.getElementById("prps");
 const secretImage = document.querySelector(".secret-image");
 
 let proofBonus = 1;
@@ -18,6 +21,9 @@ let errorPopup = 0;
 // alternate search pattern
 const pointsElement = document.getElementById("points");
 const proofsElement = document.getElementById("proofs");
+const pointspsElement = document.getElementById("pointsps");
+const proofspsElement = document.getElementById("proofsps");
+
 const mainBox = document.getElementById("main-box");
 
 function updatePoints(amount) {
@@ -28,6 +34,14 @@ function updatePoints(amount) {
 function updateProofs(amount) {
   totalProofs += amount;
   proofsElement.textContent = Math.floor(totalProofs).toString();
+}
+
+function updatePointsps(amount) {
+  pointspsElement.textContent = (Math.round(amount * 100) / 100).toString();
+}
+
+function updateProofsps(amount) {
+  proofspsElement.textContent = (Math.round(amount * 100) / 100).toString();
 }
 
 class GameInteractable {
@@ -132,7 +146,8 @@ class Unit extends GameInteractable {
   purchase(lockedAudio) {
     if (totalPoints >= this.currentCost) {
       if (this.proofGain > 0) {
-        pointsDisplay.item(1).classList.add("show");
+        proofsDisplay.classList.add("show");
+        prpsDisplay.classList.add("show");
       }
 
       updatePoints(-this.currentCost);
@@ -455,7 +470,7 @@ const upgrade6 = new Upgrade(
   "🦾",
   5000,
   () => {
-    unit2.proofGain *= 2;
+    unit3.proofGain *= 2;
   },
   true
 );
@@ -499,7 +514,8 @@ secretImage.addEventListener("click", startGame);
 
 function startGame() {
   profileImage.classList.add("clickable-small");
-  pointsDisplay.item(0).classList.add("show");
+  pointsDisplay.classList.add("show");
+  ppsDisplay.classList.add("show");
   mainBox.classList.add("page-box-small");
   secretImage.style.visibility = "hidden";
   upgradeBox.classList.add("show");
@@ -576,6 +592,9 @@ function gameLogicLoop() {
   updateProofs((proofsps * proofBonus) / 10);
   lifetimePoints += pps / 10;
   lifetimeProofs += (proofsps * proofBonus) / 10;
+
+  updatePointsps(pps);
+  updateProofsps(proofsps * proofBonus);
 
   // handle units
   unitArray.forEach((unit) => {
