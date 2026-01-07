@@ -19,7 +19,7 @@ let totalClicks = 0;
 let errorPopup = 0;
 
 // alternate search pattern
-const pointsElement = document.getElementById("points");
+const pointsElement = document.getElementById("p oints");
 const proofsElement = document.getElementById("proofs");
 const pointspsElement = document.getElementById("pointsps");
 const proofspsElement = document.getElementById("proofsps");
