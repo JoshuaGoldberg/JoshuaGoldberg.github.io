@@ -2,7 +2,7 @@ let totalPoints = 0;
 let pps = 0;
 let secretActivated = false;
 let lifetimePoints = 0;
-let clickMulti = 1;
+let clickMulti = 100000;
 const profileImage = document.querySelector(".profile-image");
 const pointsDisplay = document.getElementById("points-d");
 const proofsDisplay = document.getElementById("proofs-d");
@@ -110,7 +110,7 @@ class Unit extends GameInteractable {
     fullText.appendChild(document.createTextNode(" : "));
     fullText.appendChild(this.costField);
     fullText.appendChild(document.createTextNode(" points"));
-    this.button.appendChild(fullText)
+    this.button.appendChild(fullText);
 
     this.ownedLine = document.createElement("div");
     this.ownedLine.style.textAlign = "center";
@@ -190,17 +190,15 @@ class Upgrade extends GameInteractable {
     super.createButton();
 
     const fullText = document.createElement("div");
-    fullText.classList.add("left-side-text")
+    fullText.classList.add("left-side-text");
 
     const nameSpan = document.createElement("span");
-    
+
     nameSpan.textContent = this.name;
     nameSpan.classList.add("left-side");
 
     const costSpan = document.createElement("span");
     costSpan.textContent = this.cost;
-    
-
 
     fullText.appendChild(nameSpan);
     fullText.appendChild(document.createTextNode(" : "));
@@ -265,7 +263,7 @@ class Upgrade extends GameInteractable {
       this.reveal();
       this.removeFromArray(array);
       if (this.proof) {
-        upgradeBox.classList.add("compress")
+        upgradeBox.classList.add("compress");
         researchUpgradeBox.classList.add("compress");
         researchUpgradeBox.classList.add("show");
       }
