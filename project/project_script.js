@@ -17,7 +17,7 @@ const projects = [
   {
     title: "Owl Lean",
     preview:
-      "Bidirectional Typechecker for the security language Owl, written in Lean 4.",
+      "Bidirectional Typechecker for the security language Owl, written in Lean 4. Implements bidirectional typing systems, and support for information flow.",
     link: "/project/projects/owl_project.html",
     source: "https://github.com/JoshuaGoldberg/owl-lean",
     tag: tags.RESEARCH,
@@ -42,7 +42,7 @@ const projects = [
   {
     title: "ELEMENTS",
     preview:
-      "Also known as Extensive Language for the Efficient Monitoring of Effective Numerical Team-wide Statistics (if you're not into the whole brevity thing. A Racket based DSL for calculating and optimizing damage rotations in Genshin Impactr)",
+      "Also known as the <b>E</b>xtensive <b>L</b>anguage for the <b>E</b>fficient <b>M</b>onitoring of <b>E</b>ffective <b>N</b>umerical <b>T</b>eam-wide <b>S</b>tatistics (if you're not into the whole brevity thing). A Racket based DSL for calculating and optimizing damage rotations in Genshin Impact.",
     link: "/project/projects/dsl_project.html",
     source: "https://github.com/w1lldu/elements",
     tag: tags.ACADEMIC,
@@ -50,7 +50,7 @@ const projects = [
   {
     title: "Tap.py",
     preview:
-      "A small (and currently incomplete) clicker game written in Python, with the goal of fleshing out complex systems.",
+      "A small (and currently in progress) clicker game written in Python, with the goal of fleshing out complex systems. Currently features a robust worker management, shop, and inventory mechanics.",
     link: "/project/projects/clicker_project.html",
     source: "https://github.com/JoshuaGoldberg/Tap.py",
     tag: tags.PERSONAL,
@@ -58,7 +58,7 @@ const projects = [
   {
     title: "Powerdle",
     preview:
-      "Initially just a joke, this is a basic implementation of an evil Wordle clone. Mainly created to showcase skills learned from" +
+      "Initially just a joke, this is a basic implementation of an evil Wordle clone aiming to be as annoying and unfair as possible. Mainly created to showcase skills learned from" +
       " CS2510, Northeastern's second fundamental computer science course.",
     link: "/project/projects/wordle_project.html",
     source: "https://github.com/JoshuaGoldberg/powerdle",
