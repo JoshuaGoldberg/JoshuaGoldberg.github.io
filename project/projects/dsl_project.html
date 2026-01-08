@@ -1,10 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Projects</title>
     <link rel="stylesheet" href="/styles.css" />
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css"
+    />
   </head>
   <body class="front-page-body">
     <div class="page-box" id="blog-posts">
@@ -15,13 +19,121 @@
       <div class="info-panel">
         <hr style="width: 100%; border: 1px solid black; margin-top: 1px" />
         <!-- Description -->
-        <p>Genshin impact is one of the games of all time 🙂.</p>
-        <p>Check back soon for more details!</p>
+        <p>
+          ELEMENTS (otherwise known as the <b>E</b>xtensive <b>L</b>anguage for
+          the <b>E</b>fficient <b>M</b>onitoring of <b>E</b>ffective
+          <b>N</b>umerical <b>T</b>eam-wide <b>S</b>tatistics) is a DSL written
+          in Racket. It was created to help optimize team damage and rotations
+          in the game <b>Genshin Impact</b>. In the game, you have a team of 4
+          characters, each with abilities (normal/charged/plunging attacks, a
+          skill, and a burst). In most cases, the goal is simply to do as much
+          damage with said team as possible in the least amount of time (it also
+          is a great way to lose a lot of money, but that's off topic). This is
+          considered optimal when the DPS (damage/time) is at its
+          highest.ELEMENTS (otherwise known as the <b>E</b>xte-) allows a user
+          to define specific characters, the equipment they use, and the teams
+          they are a part of. From there, teams can be tested against enemies,
+          with the user configuring the skills and abilities used to deal
+          damage. This is then calcuated, and the total damage dealt, time, and
+          overall DPS is displayed.
+        </p>
+        <p>
+          If the game were simple, this would not be a particularly necessary or
+          interesting endeavour. However, characters themselves are rather
+          complex, and as such optimizing damage can be a pain. Particularly,
+          the factors that can impact a character's damage are:
+        </p>
+        <p>
+          Equipped Weapon Damage • Equipped Weapon Buffs • Equipped Weapon
+          Substats • Artifact Main Stats • Artifact Substats • Artifact Set
+          Bonuses • Skill Damage • Skill Buffs (Direct and Indirect) • Skill
+          Damage over time • Active Buffs from Teammates • Burst Damage • Burst
+          Buffs • Burst Damage over time • Talent Levels • Normal Attack
+          Scalings • Enemy Resistances • Enemy Defense • Enemy Resistance Shred
+          • Reaction Multipliers • Elemental Mastery Damage Bonuses • Critical
+          Rate • Critical Damage • Character Level...
+        </p>
+        <p>
+          and likely a few more things I couldn't think of at the time of
+          writing.
+        </p>
+        <p>
+          ELEMENTS aims to streamline this process by simply allowing the user
+          to define the items as they would be seen in game, with the DSL
+          managing the myriad of calculations needed to make the final damage
+          values as accurate as possible. To illustrate ELEMENTS in action,
+          snippets of code will be taken from
+          <a
+            href="https://github.com/w1lldu/elements/blob/main/example.rkt"
+            class="external-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            >this</a
+          >
+          example file.
+        </p>
+        <p>Every ELEMENTS program is wrapped as follows</p>
+        <pre><code class="language-haskell">(genshin-calc [your code here] )</code></pre>
+        <p>
+          This lets ELEMENTS know that you are going to set up damage
+          calculation.
+        </p>
+        <p>The next thing to do is define a set of Attacks:</p>
+        <pre><code class="language-scheme">(define-attack-sequence attack-chain
+   ([(atk% 10) 0.5 physical]
+    [(atk% 25) 0.2 physical]
+    [(atk% 125) 0.8 physical]
+    [(atk% 250) 1.5 physical]
+    #:charged [(hp% 5) 3.5 pyro]
+    #:plunging [(hp% 10) 3.5 physical]))</code></pre>
+        <p>
+          The first 4 entries (in brackets) define a sequence of 4 Normal
+          Attacks, along with the stat they scale off of and the value of that
+          scaling (in this case all scale off a percentage of attack), and the
+          time it takes to execute them in seconds. Charged and plunging attacks
+          are special attacks a character cna execute, and are defined last.
+          They take in similar values as Normal Attacks. In this example, both
+          the charged and plungine attack scales off of a percentage of HP.
+          Notably, the charged attack deals Pyro damage. Genshin operates off a
+          7 element system (alongside non-elemental physical attacks). All
+          damage is either physical, or one of the 7 elements (Pyro, Hydro,
+          Cryo, Electro, Anemo, Geo, or Dendro). This is useful, as certain
+          buffs will boost damage of certain elemental types, and certain
+          reactions require specific elements and provide additional damage or
+          mulipliers.
+        </p>
+        <p>
+          The next thing to logically define is a weapon that a character can
+          use:
+        </p>
+        <pre><code class="language-scheme"> (define-weapon test-weapon
+   450 ;; base attack stat
+   (critr 24.1) ;; substat (crit rate)
+   (triggered-buff
+    [dmgup
+     #:effect (atk% 20.0) ;; increase atk by 20%
+     #:trigger normal-attack
+     #:limit 1
+     #:party-wide #f
+     #:duration 10.0])
+
+   (unconditional-buff
+    [crit-up
+     #:effect (critd 20) ;; increase crit damage by 20%
+     #:party-wide #f])
+   )</code></pre>
+        <p>This page is still a WIP! Check back for more progress soon!</p>
       </div>
+
       <a class="centered" href="/index.html" id="return">Return</a>
       <script src="/add_return.js"></script>
     </div>
     <div id="footer"></div>
     <script src="/add_footer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/scheme.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
   </body>
 </html>
