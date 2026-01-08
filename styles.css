@@ -33,6 +33,10 @@
   text-align: center;
 }
 
+p {
+  overflow-wrap: break-word;
+}
+
 .page-box {
   position: relative;
   align-items: center;
