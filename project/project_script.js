@@ -40,6 +40,14 @@ const projects = [
     tag: tags.PERSONAL,
   },
   {
+    title: "ELEMENTS",
+    preview:
+      "Also known as Extensive Language for the Efficient Monitoring of Effective Numerical Team-wide Statistics (if you're not into the whole brevity thing. A Racket based DSL for calculating and optimizing damage rotations in Genshin Impactr)",
+    link: "/project/projects/dsl_project.html",
+    source: "https://github.com/w1lldu/elements",
+    tag: tags.ACADEMIC,
+  },
+  {
     title: "Tap.py",
     preview:
       "A small (and currently incomplete) clicker game written in Python, with the goal of fleshing out complex systems.",
