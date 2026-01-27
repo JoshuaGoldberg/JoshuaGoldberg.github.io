@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Change Title if desired -->
+    <title>Blog</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png" />
+  </head>
+  <body class="front-page-body">
+    <div class="page-box" id="blog-posts">
+      <div style="text-align: center">
+        <!-- Title -->
+        <h1>Group Theory: CRM</h1>
+        <!-- Date -->
+        <p class="centered"><i>Published 1/27/2025</i></p>
+      </div>
+      <div class="info-panel">
+        <hr style="width: 100%; border: 1px solid black; margin-top: 1px" />
+        <!-- Description -->
+        <p>
+          On the journey to fulfill requirements for my math minor, I've found
+          myself having to choose between various classes that I can take, as
+          I've completed every "required" course, and have reached the "just do
+          some more math" stage of the minor. As such, I find myself taking
+          learning group theory this semester. So far it's actually pretty
+          interesting, as I enjoy writing proofs, and it beats doing matrix
+          multiplication for 4 hours straight (my love/hate relationship with
+          linear algebra can be discussed in the future). The main issue right
+          now is really just that there's a lot of information to keep in your
+          head at any given moment, so I'm hoping to make some posts on the
+          topic every so often, as by writing it down I'm bound to remember it
+          in the future. I'd also like to write down my own understandings of
+          definitions and equations, as I feel like textbook descriptions can be
+          quite confusing at times.
+        </p>
+        <p>
+          This post is dedicated to the Chinese Remainder Theorem, specifically
+          proving that it is valid. To do so, I should first explain a few
+          definitions:
+        </p>
+        <p>
+          To start, you have the notation for congruency under modulo. This is
+          seen in the form of
+        </p>
+        <p class="math-text">x ≡ y (mod n)</p>
+        <p>
+          This means that under modulo <span class="math-symbol">n</span> , the
+          value <span class="math-symbol">x</span> is equal to
+          <span class="math-symbol">y</span>. For instance, the following is
+          true
+        </p>
+        <p class="math-text">5 ≡ 12 (mod 7)</p>
+        <p>
+          since <span class="math-symbol">12 - 7 = 5</span>. In general, I find
+          it easier to work directly with the mathematical representation ,
+          which can be done with the following statement
+        </p>
+        <p class="math-text">x ≡ y (mod n) ↔ ∃k∈<b>ℤ</b>. x = y + nk</p>
+        <p>
+          This allows us to convert a congruency into a traditional math
+          equation. This will be useful later on. Conceptually, it makes sense,
+          as if
+          <span class="math-symbol">x ≡ y (mod n)</span> then
+          <span class="math-symbol">x - y</span> should be a multiple of
+          <span class="math-symbol">n</span>, and vice versa.
+        </p>
+        <p>
+          With those definitions, I can now introduce the version of CRM that I
+          will prove. CRM states that if we assume the following two equations
+        </p>
+        <p class="math-text">x ≡ a (mod m)</p>
+        <p class="math-text">x ≡ b (mod n)</p>
+        <p>
+          Then if <span class="math-symbol">gcd(m, n) = 1</span>, there will be
+          a unique solution for <span class="math-symbol">x</span> under
+          <span class="math-symbol">(mod mn)</span>.
+        </p>
+        <p>
+          When I first saw this definition, it made sense to me on a high level,
+          but I was unsure why
+          <span class="math-symbol">gcd(m, n) = 1</span> was a needed
+          requirement, and why the value for
+          <span class="math-symbol">x</span> would be true under
+          <span class="math-symbol">(mod mn)</span>. However, there is a
+          straightforward way to prove this by simply following the math and
+          using the prior statements to convert congruences. In fact, the first
+          thing we can do is convert the congruences into equalities to get
+        </p>
+        <p class="math-text">x = a + mk for some k∈<b>ℤ</b></p>
+        <p class="math-text">x = b + nd for some d∈<b>ℤ</b></p>
+        <p>
+          Next, we can substitute <span class="math-symbol">a + mk</span> into
+          the second equation to get
+        </p>
+        <p class="math-text">a + mk = b + nd</p>
+        <p>Rearranging the variables gives us</p>
+        <p class="math-text">mk = (b - a) + nd</p>
+        <p>We can then convert back into a congruence to give us</p>
+        <p class="math-text">mk ≡ (b - a) (mod n)</p>
+        <p>
+          Before moving on, I must introduce another important idea, which is
+          that the GCD of two numbers <span class="math-symbol">x</span> and
+          <span class="math-symbol">y</span> can be expressed as a linear
+          combination of the two, expressed as
+        </p>
+        <p class="math-text">
+          ax + by = gcd(x, y) for some a∈<b>ℤ</b>, b∈<b>ℤ</b>
+        </p>
+        <p>Now, we can look at our current equation</p>
+        <p class="math-text">mk ≡ (b - a) (mod n)</p>
+        <p>
+          The end goal is to solve for <span class="math-symbol">k</span>, such
+          that we can plug the value in to solve for
+          <span class="math-symbol">x</span> in the first equation. Therefore,
+          we need to remove the <span class="math-symbol">m</span> in front of
+          <span class="math-symbol">k</span> to reach our answer. Since we are
+          working under <span class="math-symbol">(mod n)</span>, we could try
+          to find a value <span class="math-symbol">c∈<b>ℤ</b></span> such that
+          <span class="math-symbol">cm ≡ 1 (mod n)</span>, as that would leave
+          us with only <span class="math-symbol">k</span>. But how do we know
+          such a value exists? Well, we can convert the congruence into an
+          equality to get
+        </p>
+        <p class="math-text">cm = 1 + nz for some z∈<b>ℤ</b></p>
+        <p>Which we can rewrite as</p>
+        <p class="math-text">cm - nz = 1</p>
+        <p>
+          This actually confirms that <span class="math-symbol">c</span> must
+          exist, as the above claims that 1 can be expressed as a linear
+          combination of <span class="math-symbol">m</span> and
+          <span class="math-symbol">n</span>, which is true if
+          <span class="math-symbol">gcd(m, n) = 1</span>. Looking back at the
+          definition for CRM, we can now see why
+          <span class="math-symbol">gcd(m, n)</span> was provided as a
+          condition. Since we now know
+          <span class="math-symbol">c</span> exists, we can multiply our
+          congruence by it to get
+        </p>
+        <p class="math-text">cmk ≡ c(b - a) (mod n)</p>
+        <p>Which reduces to</p>
+        <p class="math-text">k ≡ c(b - a) (mod n)</p>
+        <p>
+          Huzzah! We now have a value we for <span class="math-symbol">k</span>.
+          Before we plug it into our original equation, we should first convert
+          it back into an equality, giving us
+        </p>
+        <p class="math-text">k = c(b - a) + nh for some h∈<b>ℤ</b></p>
+        <p>Plugging this into our original equation gives us</p>
+        <p class="math-text">x = a + m[c(b - a) + nh]</p>
+        <p>Which simplifies to</p>
+        <p class="math-text">x = a + mc(b - a) + (mn)h</p>
+        <p>
+          Importantly, this is now in a form that can be converted back into a
+          congruence under <span class="math-symbol">mn</span>. We now have
+        </p>
+        <p class="math-text">x ≡ a + mc(b - a) (mod mn)</p>
+        <p>
+          This confirms the fact that <span class="math-symbol">x</span> is a
+          unique solution under <span class="math-symbol">(mod mn)</span> thus
+          completing our proof (insert QED or □ or whatever it is we do these
+          days).
+        </p>
+        <p>
+          Finally, as a sanity check, we can confirm both congruences are true
+          for this value of x.
+        </p>
+        <p>To do so, we look back at the original equality we found</p>
+        <p class="math-text">x = a + m[c(b - a) + nh]</p>
+        <p>
+          and notice that we can convert this into a congruence under
+          <span class="math-symbol">(mod m)</span>, giving us
+        </p>
+        <p class="math-text">x ≡ a (mod m)</p>
+        <p>
+          This matches the first congruence exactly, confirming it is valid! The
+          second congruence is not as straightforward, but still pretty simple
+          to confirm. We once again look back at the original equality we found
+        </p>
+        <p class="math-text">x = a + m[c(b - a) + nh]</p>
+        <p>and distribute <span class="math-symbol">m</span> to get</p>
+        <p class="math-text">x = a + mc(b - a) + n(mh)</p>
+        <p>
+          Similarly to before, we can notice that this can be converted into a
+          congruence, this time under <span class="math-symbol">(mod n)</span>.
+          This gives us
+        </p>
+        <p class="math-text">x ≡ a + mc(b - a) (mod n)</p>
+        <p>
+          Now remember that <span class="math-symbol">cm ≡ 1 (mod n)</span>, so
+          we can replace <span class="math-symbol">mc</span> with 1 in our
+          congruence to get
+        </p>
+        <p class="math-text">x ≡ a + (b - a) (mod n)</p>
+        which clearly simplifies to
+        <p class="math-text">x ≡ b (mod n)</p>
+        <p>
+          This matches the second congruence exactly, meaning
+          <span class="math-symbol">x ≡ a + mc(b - a) (mod mn)</span> satsifies
+          both congruences. With that, CRM is officially proven!
+        </p>
+        <p>
+          I particularly like this form of the CRM proof as it leads you there
+          by following a simple chain of math. It essentially just unfolds
+          itself as you convert between equalities and congruences, and doesn't
+          really require much in the way of external logic. In future posts, I
+          hope to discuss more complicated proofs, as writing them out will
+          likely help me remember them in more detail. Until then, I hope you
+          found this proof mildly interesting, and if you didn't, thanks for
+          reading through it at least!
+        </p>
+      </div>
+      <a class="centered" href="/index.html" id="return">Return</a>
+      <script src="/add_return.js"></script>
+    </div>
+    <div id="footer"></div>
+    <script src="/add_footer.js"></script>
+  </body>
+</html>

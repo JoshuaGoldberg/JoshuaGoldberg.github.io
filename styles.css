@@ -582,3 +582,14 @@ pre {
   background-size: contain;
   vertical-align: -2px;
 }
+
+.math-text {
+  margin-left: 10%;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 110%;
+}
+
+.math-symbol {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 115%;
+}
