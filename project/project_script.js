@@ -87,6 +87,7 @@ projects.forEach((project) => {
     `;
 });
 
+// Nothing to see here :)
 const key_sequence = ['ArrowUp', 'ArrowLeft', 'ArrowRight', 'ArrowRight', 'ArrowDown'];
 let key_index = 0;
 let complete = false
