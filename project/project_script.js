@@ -86,3 +86,36 @@ projects.forEach((project) => {
       </div>
     `;
 });
+
+const key_sequence = ['ArrowUp', 'ArrowLeft', 'ArrowRight', 'ArrowRight', 'ArrowDown'];
+let key_index = 0;
+let complete = false
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === key_sequence[key_index] && !complete) {
+        key_index++;
+
+        if (key_index === key_sequence.length) {
+            console.log("Welcome Aboard")
+            complete = true;
+            key_index = 0;
+            const div = document.createElement("div");
+            div.innerHTML = `
+                <div class="works-panel">  
+                    <div class="works-header">
+                      <a href="/below/main.html">
+                          <span class="works-title">Divine Parthenogenesis Θ</span>
+                      </a>
+                      <span class="project-tag">■■■■■■■■</span>
+                    </div>
+                    <hr style="width:100%; border: 1px solid black; margin-top: 3px">
+                    <p>Last record updated on ■■/■■/■■■■. You are not supposed to be here.</p>
+                </div>
+            `;
+            const returnLink = document.getElementById("return");
+            container.insertBefore(div, returnLink);
+        }
+  } else {
+    key_index = 0;
+  }
+});

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Resume</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png" />
+  </head>
+  <body class="front-page-body">
+    <div class="page-box" id="projects">
+      <div style="text-align: center">
+        <h1>Resume</h1>
+      </div>
+      <div class="info-panel">
+        <p class="centered"><i>Last Updated 2/25/2026</i></p>
+        <p>
+          The most up to date version of my resume. Download a copy
+          <a
+            href="/web-resume.pdf"
+            class="external-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><b>HERE</b></a
+          >
+          or print it directly using <b>Ctrl+P</b>
+        </p>
+        <hr style="width: 100%; border: 1px solid black; margin-top: 1px" />
+      </div>
+      <div style="background-color: #f5f5dc">
+        <canvas
+          id="pdf-viewer"
+          style="width: 100%; display: block; mix-blend-mode: multiply"
+        ></canvas>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+      <script src="embed_resume.js"></script>
+      <a class="centered" href="/index.html" id="return">Return</a>
+      <script src="/add_return.js"></script>
+    </div>
+  </body>
+  <div id="footer"></div>
+  <script src="/add_footer.js"></script>
+</html>
