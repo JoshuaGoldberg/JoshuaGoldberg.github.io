@@ -5,6 +5,8 @@ loginButton.addEventListener("click", () => {
 
   if (username.value === "web-resume.pdf") {
     window.open("/web-resume.pdf", "_blank");
+  } else if (username.value === "factory.jpg") {
+    window.open("/assets/factory.jpg", "_blank");
   } else {
     alert("Cannot find file. Please try again.");
   }
