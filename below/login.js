@@ -5,7 +5,7 @@ loginButton.addEventListener("click", () => {
   const password = document.getElementById("password");
 
   if (username.value === "Daedalus" && password.value === "Heliophobia") {
-    window.location.href = "/below/secret.html";
+    window.location.href = "/below/lab_main.html";
   } else {
     username.value = ""
     password.value = ""

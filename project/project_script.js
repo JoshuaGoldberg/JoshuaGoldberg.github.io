@@ -103,7 +103,7 @@ document.addEventListener("keydown", (e) => {
             div.innerHTML = `
                 <div class="works-panel">  
                     <div class="works-header">
-                      <a href="/below/main.html">
+                      <a href="/below/login.html">
                           <span class="works-title">Divine Parthenogenesis Θ</span>
                       </a>
                       <span class="project-tag">■■■■■■■■</span>
