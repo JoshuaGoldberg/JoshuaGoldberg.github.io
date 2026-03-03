@@ -1,4 +1,6 @@
-pdfjsLib.getDocument("/web-resume.pdf").promise.then((pdf) => {
+const resume = "/resume_Joshua_Goldberg.pdf"
+
+pdfjsLib.getDocument(resume).promise.then((pdf) => {
   pdf.getPage(1).then((page) => {
     const canvas = document.getElementById("pdf-viewer");
     const context = canvas.getContext("2d");
@@ -25,7 +27,7 @@ document.addEventListener("keydown", (e) => {
     e.preventDefault();
     const iframe = document.createElement("iframe");
     iframe.style.display = "none";
-    iframe.src = "/web-resume.pdf";
+    iframe.src = resume;
     document.body.appendChild(iframe);
     iframe.addEventListener("load", () => {
       iframe.contentWindow.print();
