@@ -6,17 +6,17 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://joshg.pl/blog/blog.html</loc>
+    <loc>https://joshg.pl/blog/</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://joshg.pl/project/projects.html</loc>
+    <loc>https://joshg.pl/project/</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://joshg.pl/credits/credits.html</loc>
+    <loc>https://joshg.pl/credits/</loc>
     <priority>0.3</priority>
     <changefreq>weekly</changefreq>
   </url>

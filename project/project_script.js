@@ -10,7 +10,7 @@ const projects = [
   {
     title: "Lean Measure",
     preview: "An ongoing project to define probabilistic spaces in Lean 4.",
-    link: "/project/projects/lean_project.html",
+    link: "/project/projects/lean_project/",
     source: undefined,
     tag: tags.RESEARCH,
   },
@@ -18,7 +18,7 @@ const projects = [
     title: "Owl Lean",
     preview:
       "Bidirectional Typechecker for the security language Owl, written in Lean 4. Implements bidirectional typing systems, and support for information flow.",
-    link: "/project/projects/owl_project.html",
+    link: "/project/projects/owl_project/",
     source: "https://github.com/JoshuaGoldberg/owl-lean",
     tag: tags.RESEARCH,
   },
@@ -26,7 +26,7 @@ const projects = [
     title: "JustinBot 3000",
     preview:
       "Agentic Chatbot created to assist TA's within foundational Cybersecurity courses. Utilizes Retrieval-Augmented Generation (RAG) for targeted responses.",
-    link: "/project/projects/cybersecurity_project.html",
+    link: "/project/projects/cybersecurity_project/",
     source: "https://github.com/FrueanA/JustinBot3000",
     tag: tags.ACADEMIC,
   },
@@ -35,7 +35,7 @@ const projects = [
     preview:
       "A replay renderer for the rhythm game osu!mania, utilizing LZMA decompression and" +
       " a ground up recreation of the game for recording purposes.",
-    link: "/project/projects/osu_project.html",
+    link: "/project/projects/osu_project/",
     source: "https://github.com/JoshuaGoldberg/ManiaRenderer",
     tag: tags.PERSONAL,
   },
@@ -43,7 +43,7 @@ const projects = [
     title: "ELEMENTS",
     preview:
       "Also known as the <b>E</b>xtensive <b>L</b>anguage for the <b>E</b>fficient <b>M</b>onitoring of <b>E</b>ffective <b>N</b>umerical <b>T</b>eam-wide <b>S</b>tatistics (if you're not into the whole brevity thing). A Racket based DSL for calculating and optimizing damage rotations in Genshin Impact.",
-    link: "/project/projects/dsl_project.html",
+    link: "/project/projects/dsl_project/",
     source: "https://github.com/w1lldu/elements",
     tag: tags.ACADEMIC,
   },
@@ -51,7 +51,7 @@ const projects = [
     title: "Tap.py",
     preview:
       "A small (and currently in progress) clicker game written in Python, with the goal of fleshing out complex systems. Currently features a robust worker management, shop, and inventory mechanics.",
-    link: "/project/projects/clicker_project.html",
+    link: "/project/projects/clicker_project/",
     source: "https://github.com/JoshuaGoldberg/Tap.py",
     tag: tags.PERSONAL,
   },
@@ -60,7 +60,7 @@ const projects = [
     preview:
       "Initially just a joke, this is a basic implementation of an evil Wordle clone aiming to be as annoying and unfair as possible. Mainly created to showcase skills learned from" +
       " CS2510, Northeastern's second fundamental computer science course.",
-    link: "/project/projects/wordle_project.html",
+    link: "/project/projects/wordle_project/",
     source: "https://github.com/JoshuaGoldberg/powerdle",
     tag: tags.PERSONAL,
   },
