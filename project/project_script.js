@@ -8,8 +8,9 @@ const tags = {
 
 const projects = [
   {
-    title: "Lean Measure",
-    preview: "An ongoing project to define probabilistic spaces in Lean 4.",
+    title: "Categorial Mode",
+    preview:
+      "An ongoing effort to integrate Category theory into Lean 4 in new and exciting ways.",
     link: "/project/projects/lean_project/",
     source: undefined,
     tag: tags.RESEARCH,
@@ -88,20 +89,26 @@ projects.forEach((project) => {
 });
 
 // Nothing to see here :)
-const key_sequence = ['ArrowUp', 'ArrowLeft', 'ArrowRight', 'ArrowRight', 'ArrowDown'];
+const key_sequence = [
+  "ArrowUp",
+  "ArrowLeft",
+  "ArrowRight",
+  "ArrowRight",
+  "ArrowDown",
+];
 let key_index = 0;
-let complete = false
+let complete = false;
 
 document.addEventListener("keydown", (e) => {
   if (e.key === key_sequence[key_index] && !complete) {
-        key_index++;
+    key_index++;
 
-        if (key_index === key_sequence.length) {
-            console.log("Welcome Aboard")
-            complete = true;
-            key_index = 0;
-            const div = document.createElement("div");
-            div.innerHTML = `
+    if (key_index === key_sequence.length) {
+      console.log("Welcome Aboard");
+      complete = true;
+      key_index = 0;
+      const div = document.createElement("div");
+      div.innerHTML = `
                 <div class="works-panel">  
                     <div class="works-header">
                       <a href="/below/login.html">
@@ -113,9 +120,9 @@ document.addEventListener("keydown", (e) => {
                     <p>Last record updated on ■■/■■/■■■■. You are not supposed to be here.</p>
                 </div>
             `;
-            const returnLink = document.getElementById("return");
-            container.insertBefore(div, returnLink);
-        }
+      const returnLink = document.getElementById("return");
+      container.insertBefore(div, returnLink);
+    }
   } else {
     key_index = 0;
   }
