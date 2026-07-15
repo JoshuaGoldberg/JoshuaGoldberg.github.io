@@ -8,7 +8,7 @@ const tags = {
 
 const projects = [
   {
-    title: "Categorical Mode",
+    title: "Categorial Mode",
     preview:
       "An ongoing effort to integrate Category theory into Lean 4 in new and exciting ways.",
     link: "/project/projects/lean_project/",
