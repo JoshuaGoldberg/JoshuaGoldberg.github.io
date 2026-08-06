@@ -4,11 +4,11 @@ const otherView = document.getElementById("other-view");
 
 function setMode(mode) {
   switch (mode) {
-    case "resume":
+    case "default":
       resumeView.style.display = "";
       otherView.style.display = "none";
       break;
-    case "advanced":
+    case "simple":
       resumeView.style.display = "none";
       otherView.style.display = "";
       break;
@@ -16,7 +16,7 @@ function setMode(mode) {
 }
 
 resumeSwitch.addEventListener("change", function () {
-  setMode(this.checked ? "advanced" : "resume");
+  setMode(this.checked ? "simple" : "default");
 });
 
-setMode("resume");
+setMode("default");
