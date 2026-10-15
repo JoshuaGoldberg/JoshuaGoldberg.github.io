@@ -110,6 +110,37 @@ p {
   align-self: center;
 }
 
+@media (max-width: 600px) {
+  .page-box {
+    width: calc(100% - 64px);
+    min-width: 0;
+    padding: 20px;
+  }
+
+  .page-box.thin {
+    padding: 8px;
+  }
+
+  .nav-bar {
+    width: 100%;
+  }
+
+  .nav-bar button {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.8rem;
+    padding: 4px 2px;
+  }
+
+  .nav-bar button img {
+    transform: none;
+  }
+
+  .nav-bar span {
+    height: 36px;
+  }
+}
+
 .sub-panel {
   display: flex;
   flex-direction: column;
