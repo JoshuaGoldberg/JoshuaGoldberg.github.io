@@ -29,7 +29,7 @@ const projects = [
       "Agentic Chatbot created to assist TA's within foundational Cybersecurity courses. Utilizes Retrieval-Augmented Generation (RAG) for targeted responses.",
     link: "/project/projects/cybersecurity_project/",
     source: "https://github.com/FrueanA/JustinBot3000",
-    tag: tags.ACADEMIC,
+    tag: tags.RESEARCH,
   },
   {
     title: "Osu!Mania Replay Renderer",
