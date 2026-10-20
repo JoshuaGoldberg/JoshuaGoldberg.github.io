@@ -5,24 +5,86 @@
     <title>credit</title>
     <link rel="stylesheet" href="/styles.css" />
     <link rel="shortcut icon" type="image/png" href="/assets/favicon.png" />
+    <style>
+      /* Tiled site icon over the green bgcolor, blown up 3x with crunchy pixels. */
+      body {
+        background-image: url("/assets/favicon.png");
+        background-size: 96px 96px;
+        image-rendering: pixelated;
+      }
+      body > * { image-rendering: auto; }
+      #return { background: #2ac14a; padding: 2px 8px; border: 2px outset #0d6906; }
+
+      /* "Your Ad Here" boxes. Sizes come from the width/height attributes. */
+      table.ad {
+        display: inline-table;
+        vertical-align: middle;
+        margin: 2px;
+        background: #c0c0c0;
+        border: 3px outset #dcdcdc;
+        border-collapse: collapse;
+        color: red;
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+      }
+      table.ad.small { font-size: 10px; }
+      table.ad.big { font-size: 30px; }
+      table.ad.blink td { animation: ad-blink 1s steps(1) infinite; }
+      @keyframes ad-blink { 50% { visibility: hidden; } }
+    </style>
+    <script src="dialup.js"></script>
   </head>
   <body bgcolor="#2bbf21" text="#0c2b0f">
     <font face="Comic Sans MS, Arial">
     <div>
+      <center>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <br>
+        <table class="ad" width="468" height="60"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad blink" width="468" height="60"><tr><td>Your Ad Here</td></tr></table>
+      </center>
       <div>
         <center>
-            <font size="7" color="red"><b>Goblin Sighting Club HQ</b></font>
-            <br>
+            <table bgcolor="#95df90" border="3" cellpadding="6"><tr><td>
+              <font size="7" color="red"><b>Goblin Sighting Club HQ</b></font>
+            </td></tr></table>
             <marquee behavior="alternate" scrollamount="12" bgcolor="#ced41e">!!! Seen a goblin in your area??? Let us know :D !!!</marquee>
+            <br>
+            <table class="ad big" width="728" height="90"><tr><td>Your Ad Here</td></tr></table>
+            <br>
+            <table class="ad" width="234" height="60"><tr><td>Your Ad Here</td></tr></table>
+            <table class="ad" width="234" height="60"><tr><td>Your Ad Here</td></tr></table>
+            <table class="ad" width="234" height="60"><tr><td>Your Ad Here</td></tr></table>
         </center>
       </div>
+      <table width="100%" cellpadding="8" cellspacing="0">
+      <tr>
+      <td width="160" valign="top">
+        <table class="ad big" width="160" height="600"><tr><td>Your<br>Ad<br>Here</td></tr></table>
+        <table class="ad blink" width="160" height="250"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad" width="75" height="75"><tr><td>Your Ad Here</td></tr></table><table class="ad" width="75" height="75"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="75" height="31"><tr><td>Your Ad Here</td></tr></table><table class="ad small" width="75" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="75" height="31"><tr><td>Your Ad Here</td></tr></table><table class="ad small" width="75" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad" width="160" height="600"><tr><td>Your<br>Ad<br>Here</td></tr></table>
+      </td>
+      <td valign="top" bgcolor="#95df90" style="border: 3px ridge #ced41e">
       <div>
         <p>
-          <font size="6"><b>Welcome</b></font> to the web page for Goblin Sighting club!! We meet <u>biweekly</u> to talk about various goblin sightingsand evidence we've collected.
+          <font size="6"><b>Welcome</b></font> to the web page for Goblin Sighting club!! We meet <u>biweekly</u> to talk about various goblin sightings and evidence we've collected.
           We permit any type of goblin sightings, including but not limited to, green, red, blue, orange, pink, yellow, aquamarine, or tie-dye!
           Additionally, we host a variety of related activities, as well as food and beverage at every meeting (depending on monthly budget).
-          Check below for more details. 
+          Check below for more details.
         </p>
+        <center>
+          <table class="ad" width="468" height="60"><tr><td>Your Ad Here</td></tr></table>
+          <table class="ad" width="125" height="125"><tr><td>Your Ad Here</td></tr></table>
+        </center>
         <marquee behavior="alternate" scrollamount="6" bgcolor="#ced41e">!!! We are looking for guest speakers, please contact !!!</marquee>
         <p>
           <font size="6"><b>This Club</b></font> was founded in 1995, following an incident the club has gone on to call "G-Day". Our original
@@ -36,6 +98,14 @@
           Following this tragic news, we make sure to honor them in all meetings by reciting a sacred goblin-club mantra, which you can learn youself if you wish to join us in remembering
           them. We also advise any members to double check the new goblin sighter's exploration guide to stay safe while doing potential goblin watching.
         </p>
+        <center>
+          <table class="ad" width="234" height="60"><tr><td>Your Ad Here</td></tr></table>
+          <table class="ad blink" width="234" height="60"><tr><td>Your Ad Here</td></tr></table>
+          <table class="ad" width="234" height="60"><tr><td>Your Ad Here</td></tr></table>
+          <br>
+          <table class="ad" width="468" height="60"><tr><td>Your Ad Here</td></tr></table>
+          <table class="ad" width="234" height="60"><tr><td>Your Ad Here</td></tr></table>
+        </center>
         <marquee scrollamount="250" bgcolor="#ced41e">!!! Please email us if you are interested in a goblin sighting club 100% cotton t-shirt !!!</marquee>
         <p>
           <font size="6"><b>1999/12/28 Schedule</b></font> This will be a very special goblin sighting club meeting! This will be out last meeting before
@@ -59,19 +129,62 @@
           <font size="4" color="#1147d9"><b>3:30am - 4:30am</b></font> - goblin powerscaling (spotlight on: 15 large goblins vs. the evil goblin)<br>
           <font size="4" color="#1147d9"><b>4:30am - 6:30am</b></font> - make Leroy file our taxes<br>
           <font size="4" color="#1147d9"><b>6:30am</b></font> - go home and take goblin themed nap<br>
-          <br> 
+          <br>
             We hope to see you there! We've noticed that attendance has been down in the past few weeks. While we get it, Christmas break is no excuse to stop looking for goblins!
             We also do not accept Santa sightings, so don't bring them to this meeting. Santa is an <b>ELF</b>, not a goblin, and frankly we were insulted when someone
             brought in their Santa sightings last year. Yes, we're talking about you Robert. Don't come back. For anyone not named R*bert, get ready to have a great
             year 2k goblin sighting club meeting!!!!!
         </p>
+        <center>
+          <table class="ad" width="125" height="125"><tr><td>Your Ad Here</td></tr></table>
+          <table class="ad blink" width="125" height="125"><tr><td>Your Ad Here</td></tr></table>
+          <table class="ad" width="125" height="125"><tr><td>Your Ad Here</td></tr></table>
+          <table class="ad" width="125" height="125"><tr><td>Your Ad Here</td></tr></table>
+        </center>
         <marquee scrollamount="750" bgcolor="#ced41e">~*~*~ Wow! We love goblins! ~*~*~</marquee>
+        <center>
+          <table class="ad" width="468" height="60"><tr><td>Your Ad Here</td></tr></table>
+          <table class="ad" width="468" height="60"><tr><td>Your Ad Here</td></tr></table>
+        </center>
+        <marquee scrollamount="8">
+          <table class="ad" width="234" height="60"><tr><td>Your Ad Here</td></tr></table>
+          <table class="ad" width="234" height="60"><tr><td>Your Ad Here</td></tr></table>
+          <table class="ad" width="234" height="60"><tr><td>Your Ad Here</td></tr></table>
+          <table class="ad" width="234" height="60"><tr><td>Your Ad Here</td></tr></table>
+        </marquee>
 
         <p>
-          <font size="6"><b>Best of 1999 Gallery</b></font>
+          <font size="6"><b>Best of 1999 Gallery</b></font> come back soon to see the best goblin sightings of 1999!
         </p>
         <marquee scrollamount="1" bgcolor="#ced41e">Hi</marquee>
       </div>
+      </td>
+      <td width="160" valign="top">
+        <table class="ad blink" width="160" height="600"><tr><td>Your<br>Ad<br>Here</td></tr></table>
+        <table class="ad" width="75" height="75"><tr><td>Your Ad Here</td></tr></table><table class="ad" width="75" height="75"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad" width="160" height="250"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="75" height="31"><tr><td>Your Ad Here</td></tr></table><table class="ad small" width="75" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad big" width="160" height="600"><tr><td>Your<br>Ad<br>Here</td></tr></table>
+        <table class="ad" width="160" height="250"><tr><td>Your Ad Here</td></tr></table>
+      </td>
+      </tr>
+      </table>
+      <center>
+        <table class="ad" width="468" height="60"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad" width="468" height="60"><tr><td>Your Ad Here</td></tr></table>
+        <br>
+        <table class="ad big" width="728" height="90"><tr><td>Your Ad Here</td></tr></table>
+        <br>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+        <table class="ad small" width="88" height="31"><tr><td>Your Ad Here</td></tr></table>
+      </center>
+      <br>
       <a class="centered" href="/index.html" id="return">Return</a>
       <script src="/add_return.js"></script>
     </div>

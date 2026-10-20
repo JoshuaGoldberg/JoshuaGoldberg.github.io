@@ -2,13 +2,6 @@ const container = document.getElementById("blog-posts");
 
 const posts = [
   {
-    title: "Goblin Sighting Club",
-    date: "10/15/2026",
-    preview:
-      "Thank you for visiting our page! Please contact us directly for club information and a promotional pamphlet.",
-    link: "/goblins",
-  },
-  {
     title: "My Review of Austin, Texas",
     date: "10/13/2026",
     preview:
