@@ -775,6 +775,18 @@ pre {
   transform: translateY(-1px);
 }
 
+.resume-doi {
+  padding: 2px 10px;
+}
+
+.resume-doi::before {
+  display: none;
+}
+
+.resume-authors {
+  font-size: 0.9rem;
+}
+
 .resume-box {
   margin: 0 0 12px;
   background-color: moccasin;

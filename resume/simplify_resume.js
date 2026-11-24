@@ -1,5 +1,8 @@
 const BULLET = /^[●•▪◦]\s*/;
 const KEY_VALUE = /^([^:]{1,40}?)\s*:\s*(.+)$/;
+// A citation starts with an author like "J. M. Li," or "C. Zimmerman,".
+const CITATION_START = /^(?:\p{Lu}\.\s?)+\p{Lu}[^,.]*,/u;
+const PUBLICATIONS = /publication|papers/i;
 
 function fontStyle(page, fontName) {
   try {
@@ -102,6 +105,7 @@ function parseResume(lines) {
   let section = null;
   let entry = null;
   let bullet = null;
+  let citation = null;
   let prevY = null;
 
   for (const line of lines) {
@@ -120,8 +124,24 @@ function parseResume(lines) {
 
     if (line.height > bodyHeight + 1) {
       section = { title: text, facts: [], entries: [] };
+      if (PUBLICATIONS.test(text)) section.citations = [];
       resume.sections.push(section);
-      entry = bullet = null;
+      entry = bullet = citation = null;
+      continue;
+    }
+
+    // Publications: one citation per author-led line, with wrapped lines
+    // (hanging indent) joined onto the previous citation.
+    if (section.citations) {
+      const bulletMatch = text.match(BULLET);
+      const lead = lineText(line.segments).length - lineText(line.segments).trimStart().length;
+      const segments = sliceSegments(line.segments, lead + (bulletMatch ? bulletMatch[0].length : 0));
+      if (!citation || bulletMatch || CITATION_START.test(text)) {
+        citation = segments;
+        section.citations.push(citation);
+      } else {
+        citation.push({ text: " " }, ...segments);
+      }
       continue;
     }
 
@@ -324,18 +344,101 @@ function renderEntry(entry) {
   return details;
 }
 
+// 'A. B, C. D. "Title." Venue. DOI: 10.x' -> { authors, title, venue, doi }.
+// Falls back to the raw text when there is no quoted title.
+function splitCitation(segments) {
+  const text = lineText(segments).replace(/\s+/g, " ").trim();
+  const links = segments.filter((s) => s.href && s.text.trim()).map((s) => s.href);
+  const m = text.match(/^(.*?)\s*["“](.+?)["”]\s*(.*)$/);
+  if (!m) return { text, href: links[0] || null };
+
+  let venue = m[3];
+  let doi = null;
+  const d = venue.match(/\s*DOI:?\s*(10\.\S+?)\.?$/i);
+  if (d) {
+    doi = {
+      label: d[1],
+      href: links.find((l) => l.includes(d[1])) || "https://doi.org/" + d[1],
+    };
+    venue = venue.slice(0, d.index);
+  }
+  return {
+    authors: m[1].trim().replace(/,$/, ""),
+    title: m[2].replace(/[\s.,]+$/, ""),
+    venue: venue.replace(/[\s.,]+$/, ""),
+    doi,
+    href: links.find((l) => !doi || l !== doi.href) || null,
+  };
+}
+
+// Author list with the resume owner's name ("J. Goldberg") in bold.
+function authorList(authors, ownerName) {
+  const frag = document.createDocumentFragment();
+  const parts = ownerName.split(/\s+/);
+  const short = parts[0][0] + ". " + parts[parts.length - 1];
+  const at = authors.indexOf(short);
+  if (at === -1) {
+    frag.append(authors);
+  } else {
+    frag.append(authors.slice(0, at), el("b", null, short), authors.slice(at + short.length));
+  }
+  return frag;
+}
+
+function renderCitation(segments, ownerName) {
+  const c = splitCitation(segments);
+  const titleWrap = el("span", "resume-box-title");
+  if (!c.title) {
+    titleWrap.append(renderSegments(segments));
+  } else {
+    const titleLine = el("span", "resume-title-line");
+    const title = el("b", null, c.title);
+    if (c.href) {
+      const a = el("a");
+      a.href = c.href;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.append(title);
+      titleLine.append(a);
+    } else {
+      titleLine.append(title);
+    }
+    if (c.doi) {
+      const a = el("a", "resume-source resume-doi", "DOI");
+      a.href = c.doi.href;
+      a.title = c.doi.label;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      titleLine.append(a);
+    }
+    titleWrap.append(titleLine);
+    const authors = el("span", "resume-authors");
+    authors.append(authorList(c.authors, ownerName));
+    titleWrap.append(authors);
+    if (c.venue) titleWrap.append(el("span", "resume-tag", c.venue));
+  }
+  const head = el("span", "resume-box-head");
+  head.append(titleWrap);
+  const { details, body } = collapsible([head], "empty");
+  body.remove();
+  return details;
+}
+
 function renderResume(resume, container) {
   container.replaceChildren();
 
-  // Only sections made of dated entries are shown; the name/contact header,
-  // skill lists, and standalone lines like Interests are left out.
+  // Only sections made of dated entries (or publications) are shown; the
+  // name/contact header, skill lists, and standalone lines like Interests
+  // are left out.
   for (const section of resume.sections) {
-    if (!section.entries.length) continue;
+    const citations = section.citations || [];
+    if (!section.entries.length && !citations.length) continue;
 
     const wrap = el("section", "resume-section");
     wrap.append(el("h3", null, section.title));
     wrap.append(el("hr", "resume-rule"));
     section.entries.forEach((e) => wrap.append(renderEntry(e)));
+    citations.forEach((c) => wrap.append(renderCitation(c, resume.name)));
     container.append(wrap);
   }
 }
